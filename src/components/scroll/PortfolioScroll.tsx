@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import type { MotionValue } from "framer-motion";
 import { useRef } from "react";
+import type { CSSProperties } from "react";
 
 const projectSlides = [
   {
@@ -33,22 +34,38 @@ const projectSlides = [
 ];
 
 const skills = [
-  { name: "React / Next.js", value: 95 },
-  { name: "Node.js / NestJS", value: 93 },
-  { name: "Python / FastAPI", value: 90 },
-  { name: "AI Systems (RAG, STT, LLM)", value: 92 },
-  { name: "Cloud / DevOps (AWS, GCP, Docker)", value: 88 },
-  { name: "PostgreSQL / MongoDB", value: 89 },
+  { name: "React.js", value: 95, color: "#61dafb", glow: "#7dd3fc" },
+  { name: "Next.js", value: 92, color: "#f5f5f5", glow: "#e5e7eb" },
+  { name: "Node.js", value: 93, color: "#68a063", glow: "#86efac" },
+  { name: "NestJS", value: 90, color: "#e0234e", glow: "#fb7185" },
+  { name: "Python", value: 90, color: "#3776ab", glow: "#93c5fd" },
+  { name: "FastAPI", value: 88, color: "#009688", glow: "#2dd4bf" },
+  { name: "AI Systems (RAG, STT, LLM)", value: 92, color: "#a855f7", glow: "#c084fc" },
+  { name: "Cloud / DevOps (AWS, GCP, Docker)", value: 88, color: "#f59e0b", glow: "#fbbf24" },
+  { name: "PostgreSQL / MongoDB", value: 89, color: "#336791", glow: "#93c5fd" },
 ];
 
 function SkillBar({
   skillName,
   skillValue,
+  color,
+  glow,
   progress,
-}: Readonly<{ skillName: string; skillValue: number; progress: MotionValue<number> }>) {
+}: Readonly<{
+  skillName: string;
+  skillValue: number;
+  color: string;
+  glow: string;
+  progress: MotionValue<number>;
+}>) {
   const fillValue = useTransform(progress, [0, 1], [0, skillValue]);
   const fillWidth = useTransform(fillValue, (v) => `${v}%`);
+  const emptyWidth = useTransform(fillValue, (v) => `${Math.max(0, 100 - v)}%`);
   const labelValue = useTransform(fillValue, (v) => `${Math.round(v)}%`);
+  const colorVars = {
+    "--skill-color": color,
+    "--skill-glow": glow,
+  } as CSSProperties;
 
   return (
     <div className="skill-bar-shell">
@@ -56,9 +73,18 @@ function SkillBar({
         <h3 className="text-sm font-semibold text-slate-100 md:text-base">{skillName}</h3>
         <motion.span className="text-sm font-semibold text-cyan-200">{labelValue}</motion.span>
       </div>
-      <div className="skill-track-3d">
-        <motion.div className="skill-fill-3d" style={{ width: fillWidth }}>
+      <div className="skill-track-3d-prism">
+        <motion.div className="skill-prism skill-prism-fill" style={{ width: fillWidth, ...colorVars }}>
+          <span className="prism-face prism-face-top" />
+          <span className="prism-face prism-face-right" />
           <div className="skill-fill-glow" />
+        </motion.div>
+        <motion.div
+          className="skill-prism skill-prism-empty"
+          style={{ width: emptyWidth, left: fillWidth }}
+        >
+          <span className="prism-face prism-face-top" />
+          <span className="prism-face prism-face-right" />
         </motion.div>
       </div>
     </div>
@@ -228,6 +254,8 @@ export default function PortfolioScroll() {
                     key={skill.name}
                     skillName={skill.name}
                     skillValue={skill.value}
+                    color={skill.color}
+                    glow={skill.glow}
                     progress={skillsProgress}
                   />
                 );
