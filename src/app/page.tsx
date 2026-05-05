@@ -1,13 +1,15 @@
 import Script from "next/script";
 import PortfolioScroll from "@/components/scroll/PortfolioScroll";
 
+export const dynamic = "force-static";
+
 export default function Home() {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Hamza Manzoor",
     jobTitle: "Senior Full-Stack Developer & AI Systems Architect",
-    url: "https://hamzamanzoor.dev",
+    url: "https://hamza-manzoor.vercel.app",
     knowsAbout: [
       "React",
       "Next.js",

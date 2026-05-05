@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hamzamanzoor.dev"),
+  metadataBase: new URL("https://hamza-manzoor.vercel.app"),
   title: {
     default: "Hamza Manzoor | Senior Full-Stack Developer",
     template: "%s | Hamza Manzoor",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Hamza Manzoor | Senior Full-Stack Developer",
     description:
       "Building scalable SaaS and AI systems with modern web and cloud infrastructure.",
-    url: "https://hamzamanzoor.dev",
+    url: "https://hamza-manzoor.vercel.app",
     siteName: "Hamza Manzoor Portfolio",
     type: "website",
   },
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       "Building scalable SaaS and AI systems with modern web and cloud infrastructure.",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://hamza-manzoor.vercel.app",
   },
 };
 
