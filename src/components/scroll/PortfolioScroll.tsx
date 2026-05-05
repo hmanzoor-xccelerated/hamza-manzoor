@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import type { MotionValue } from "framer-motion";
 import { useRef } from "react";
 
 const projectSlides = [
@@ -31,9 +32,43 @@ const projectSlides = [
   },
 ];
 
+const skills = [
+  { name: "React / Next.js", value: 95 },
+  { name: "Node.js / NestJS", value: 93 },
+  { name: "Python / FastAPI", value: 90 },
+  { name: "AI Systems (RAG, STT, LLM)", value: 92 },
+  { name: "Cloud / DevOps (AWS, GCP, Docker)", value: 88 },
+  { name: "PostgreSQL / MongoDB", value: 89 },
+];
+
+function SkillBar({
+  skillName,
+  skillValue,
+  progress,
+}: Readonly<{ skillName: string; skillValue: number; progress: MotionValue<number> }>) {
+  const fillValue = useTransform(progress, [0, 1], [0, skillValue]);
+  const fillWidth = useTransform(fillValue, (v) => `${v}%`);
+  const labelValue = useTransform(fillValue, (v) => `${Math.round(v)}%`);
+
+  return (
+    <div className="skill-bar-shell">
+      <div className="mb-2 flex items-center justify-between">
+        <h3 className="text-sm font-semibold text-slate-100 md:text-base">{skillName}</h3>
+        <motion.span className="text-sm font-semibold text-cyan-200">{labelValue}</motion.span>
+      </div>
+      <div className="skill-track-3d">
+        <motion.div className="skill-fill-3d" style={{ width: fillWidth }}>
+          <div className="skill-fill-glow" />
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
 export default function PortfolioScroll() {
   const heroRef = useRef<HTMLElement | null>(null);
   const projectsRef = useRef<HTMLElement | null>(null);
+  const skillsRef = useRef<HTMLElement | null>(null);
 
   const { scrollYProgress: heroProgress } = useScroll({
     target: heroRef,
@@ -90,6 +125,11 @@ export default function PortfolioScroll() {
     stiffness: 110,
     damping: 26,
     mass: 0.25,
+  });
+
+  const { scrollYProgress: skillsProgress } = useScroll({
+    target: skillsRef,
+    offset: ["start start", "end end"],
   });
 
   return (
@@ -166,6 +206,33 @@ export default function PortfolioScroll() {
                 </article>
               ))}
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" ref={skillsRef} className="relative h-[240vh]">
+        <div className="sticky top-0 flex h-screen items-center">
+          <div className="mx-auto w-full max-w-6xl px-6 py-10">
+            <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Skills</p>
+            <h2 className="mt-3 text-4xl font-semibold text-white md:text-5xl">
+              3D skill progression
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+              This section stays pinned until all bars complete their fill animation.
+            </p>
+
+            <div className="mt-10 space-y-5">
+              {skills.map((skill) => {
+                return (
+                  <SkillBar
+                    key={skill.name}
+                    skillName={skill.name}
+                    skillValue={skill.value}
+                    progress={skillsProgress}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
