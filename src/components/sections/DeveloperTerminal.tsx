@@ -54,12 +54,14 @@ export default function DeveloperTerminal() {
     { text: "", type: "output" },
   ]);
 
-  const terminalEndRef = useRef<HTMLDivElement>(null);
+  const consoleRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll on new entries
+  // Auto-scroll on new entries (scoped locally to the terminal scroll container)
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (consoleRef.current) {
+      consoleRef.current.scrollTop = consoleRef.current.scrollHeight;
+    }
   }, [history]);
 
   const handleCommand = (cmd: string) => {
@@ -128,7 +130,7 @@ export default function DeveloperTerminal() {
       </div>
 
       {/* Terminal Screen Console */}
-      <div className="h-[250px] overflow-y-auto pr-2 space-y-2 no-scrollbar select-text">
+      <div ref={consoleRef} className="h-[250px] overflow-y-auto pr-2 space-y-2 no-scrollbar select-text">
         {history.map((line, index) => {
           let colorClass = "text-slate-300";
           if (line.type === "prompt") colorClass = "text-cyan-400 font-semibold";
@@ -141,7 +143,6 @@ export default function DeveloperTerminal() {
             </p>
           );
         })}
-        <div ref={terminalEndRef} />
       </div>
 
       {/* Input Prompt Line */}
