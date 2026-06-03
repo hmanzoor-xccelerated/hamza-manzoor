@@ -53,6 +53,7 @@ export default function DeveloperTerminal() {
     { text: "Type 'help' to scan available interface commands.", type: "output" },
     { text: "", type: "output" },
   ]);
+  const [isMaximized, setIsMaximized] = useState(false);
 
   const consoleRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -63,6 +64,18 @@ export default function DeveloperTerminal() {
       consoleRef.current.scrollTop = consoleRef.current.scrollHeight;
     }
   }, [history]);
+
+  // Lock background body scroll when terminal is maximized
+  useEffect(() => {
+    if (isMaximized) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMaximized]);
 
   const handleCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase();
@@ -100,6 +113,7 @@ export default function DeveloperTerminal() {
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
+      e.preventDefault(); // Stop default action (prevents keypress page scroll shift)
       handleCommand(input);
       setInput("");
     }
@@ -113,24 +127,57 @@ export default function DeveloperTerminal() {
     inputRef.current?.focus();
   };
 
+  const toggleMaximize = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsMaximized(!isMaximized);
+    setTimeout(() => focusInput(), 50);
+  };
+
   return (
     <div
       onClick={focusInput}
-      className="w-full max-w-2xl rounded-xl border border-cyan-400/25 bg-[#03060f]/90 p-5 shadow-[0_24px_55px_rgba(0,0,0,0.6)] backdrop-blur cursor-text font-mono text-sm text-cyan-100"
+      className={`rounded-xl border border-cyan-400/25 bg-[#03060f]/95 p-5 shadow-[0_24px_55px_rgba(0,0,0,0.6)] backdrop-blur font-mono text-sm text-cyan-100 transition-all duration-300 ${
+        isMaximized
+          ? "fixed inset-4 z-50 flex flex-col max-w-none h-[calc(100vh-32px)]"
+          : "w-full max-w-2xl"
+      }`}
     >
       {/* OS Terminal Title Bar */}
       <div className="mb-4 flex items-center justify-between border-b border-cyan-500/10 pb-3">
         <div className="flex gap-2">
-          <span className="h-3 w-3 rounded-full bg-rose-500/80" />
-          <span className="h-3 w-3 rounded-full bg-amber-500/80" />
-          <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
+          <button
+            type="button"
+            onClick={() => setIsMaximized(false)}
+            className="h-3 w-3 rounded-full bg-rose-500/80 hover:bg-rose-400 transition cursor-pointer border-none outline-none"
+            title="Close / Restore normal size"
+            aria-label="Restore terminal size"
+          />
+          <button
+            type="button"
+            onClick={() => setIsMaximized(false)}
+            className="h-3 w-3 rounded-full bg-amber-500/80 hover:bg-amber-400 transition cursor-pointer border-none outline-none"
+            title="Minimize"
+            aria-label="Minimize terminal"
+          />
+          <button
+            type="button"
+            onClick={toggleMaximize}
+            className="h-3 w-3 rounded-full bg-emerald-500/80 hover:bg-emerald-400 transition cursor-pointer border-none outline-none"
+            title={isMaximized ? "Restore size" : "Maximize"}
+            aria-label={isMaximized ? "Restore size" : "Maximize terminal"}
+          />
         </div>
         <p className="text-[11px] tracking-wide text-cyan-300/40 uppercase">dev-terminal</p>
         <span className="w-8" />
       </div>
 
       {/* Terminal Screen Console */}
-      <div ref={consoleRef} className="h-[250px] overflow-y-auto pr-2 space-y-2 no-scrollbar select-text">
+      <div
+        ref={consoleRef}
+        className={`overflow-y-auto pr-2 space-y-2 no-scrollbar select-text ${
+          isMaximized ? "flex-1" : "h-[250px]"
+        }`}
+      >
         {history.map((line, index) => {
           let colorClass = "text-slate-300";
           if (line.type === "prompt") colorClass = "text-cyan-400 font-semibold";
