@@ -1,91 +1,109 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import type { MotionValue } from "framer-motion";
-import { useRef } from "react";
-import type { CSSProperties } from "react";
+import Link from "next/link";
+import { motion, useScroll, useSpring, useTransform, useMotionValue } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import type { CSSProperties, MouseEvent } from "react";
 
 const projectSlides = [
   {
+    id: "voxbee",
     title: "Voxbee AI",
     description:
       "Multimodal pipeline for dubbing, TTS orchestration, and avatar generation with production-ready architecture.",
     tech: "Next.js, FastAPI, RAG, Whisper",
+    image: "/images/voxbee.png",
   },
   {
-    title: "Marketing.biz",
-    description:
-      "AI analytics platform combining cross-channel social data to drive lead intelligence and organic growth.",
-    tech: "React, Node.js, PostgreSQL, Python",
-  },
-  {
+    id: "romingo",
     title: "Romingo",
     description:
       "Enterprise hotel system with role-based workflows, internal automations, and operational dashboards.",
     tech: "React, NestJS, MongoDB, AWS",
+    image: "/images/romingo.png",
   },
   {
-    title: "TheQube & Xeurix",
+    id: "theqube",
+    title: "TheQube",
     description:
-      "Recruitment and workflow platforms with complex permissions, optimized APIs, and scalable data handling.",
+      "Enterprise music and podcast studio membership booking and workspace community platforms in London.",
+    tech: "React, Webflow, Node.js, NestJS",
+    image: "/images/qube.jpg",
+  },
+  {
+    id: "xeurix",
+    title: "Xeurix",
+    description:
+      "AI recruitment search and career workflow engine for candidates with automated outreach.",
     tech: "Next.js, NestJS, PostgreSQL, Docker",
+    image: "/images/xeurix.png",
   },
 ];
 
 const skills = [
-  { name: "React.js", value: 95, color: "#61dafb", glow: "#7dd3fc" },
-  { name: "Next.js", value: 92, color: "#f5f5f5", glow: "#e5e7eb" },
-  { name: "Node.js", value: 93, color: "#68a063", glow: "#86efac" },
-  { name: "NestJS", value: 90, color: "#e0234e", glow: "#fb7185" },
-  { name: "Python", value: 90, color: "#3776ab", glow: "#93c5fd" },
-  { name: "FastAPI", value: 88, color: "#009688", glow: "#2dd4bf" },
-  { name: "AI Systems (RAG, STT, LLM)", value: 92, color: "#a855f7", glow: "#c084fc" },
-  { name: "Cloud / DevOps (AWS, GCP, Docker)", value: 88, color: "#f59e0b", glow: "#fbbf24" },
-  { name: "PostgreSQL / MongoDB", value: 89, color: "#336791", glow: "#93c5fd" },
+  { name: "React.js / Frontend", value: 95, color: "#61dafb", glow: "#7dd3fc" },
+  { name: "Next.js (App Router)", value: 92, color: "#ffffff", glow: "#f3f4f6" },
+  { name: "Node.js Platform", value: 93, color: "#68a063", glow: "#86efac" },
+  { name: "NestJS Framework", value: 90, color: "#e0234e", glow: "#fb7185" },
+  { name: "Python Systems", value: 90, color: "#3776ab", glow: "#93c5fd" },
+  { name: "FastAPI Engine", value: 88, color: "#009688", glow: "#2dd4bf" },
+  { name: "AI/LLM Engineering", value: 92, color: "#a855f7", glow: "#c084fc" },
+  { name: "Cloud & Devops (AWS/Docker)", value: 88, color: "#f59e0b", glow: "#fbbf24" },
+  { name: "Data (Postgres/Mongo)", value: 89, color: "#336791", glow: "#93c5fd" },
 ];
 
-function SkillBar({
-  skillName,
-  skillValue,
-  color,
-  glow,
-  progress,
+function SkillCard({
+  skill,
 }: Readonly<{
-  skillName: string;
-  skillValue: number;
-  color: string;
-  glow: string;
-  progress: MotionValue<number>;
+  skill: { name: string; value: number; color: string; glow: string };
 }>) {
-  const fillValue = useTransform(progress, [0, 1], [0, skillValue]);
-  const fillWidth = useTransform(fillValue, (v) => `${v}%`);
-  const emptyWidth = useTransform(fillValue, (v) => `${Math.max(0, 100 - v)}%`);
-  const labelValue = useTransform(fillValue, (v) => `${Math.round(v)}%`);
-  const colorVars = {
-    "--skill-color": color,
-    "--skill-glow": glow,
-  } as CSSProperties;
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+    setRotate({
+      x: -(y - yc) / 5,
+      y: (x - xc) / 5,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setRotate({ x: 0, y: 0 });
+  };
 
   return (
-    <div className="skill-bar-shell">
-      <div className="mb-2 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-slate-100 md:text-base">{skillName}</h3>
-        <motion.span className="text-sm font-semibold text-cyan-200">{labelValue}</motion.span>
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+        transition: "transform 0.12s ease-out",
+      }}
+      className="relative flex flex-col justify-between p-6 rounded-2xl border border-cyan-300/15 bg-slate-950/40 backdrop-blur shadow-lg overflow-hidden group select-none cursor-pointer"
+    >
+      <div
+        className="absolute -right-10 -top-10 h-24 w-24 rounded-full filter blur-2xl opacity-15 group-hover:opacity-35 transition-opacity duration-300 pointer-events-none"
+        style={{ backgroundColor: skill.glow }}
+      />
+      <div>
+        <h3 className="text-sm font-semibold text-slate-200">{skill.name}</h3>
+        <p className="mt-1 text-[11px] text-slate-400">Expertise Log</p>
       </div>
-      <div className="skill-track-3d-prism">
-        <motion.div className="skill-prism skill-prism-fill" style={{ width: fillWidth, ...colorVars }}>
-          <span className="prism-face prism-face-top" />
-          <span className="prism-face prism-face-right" />
-          <div className="skill-fill-glow" />
-        </motion.div>
-        <motion.div
-          className="skill-prism skill-prism-empty"
-          style={{ width: emptyWidth, left: fillWidth }}
-        >
-          <span className="prism-face prism-face-top" />
-          <span className="prism-face prism-face-right" />
-        </motion.div>
+      <div className="mt-8 flex items-baseline justify-between border-t border-cyan-500/5 pt-4">
+        <span className="text-2xl font-bold tracking-tight text-white font-mono">{skill.value}%</span>
+        <span
+          className="h-2 w-2 rounded-full"
+          style={{
+            backgroundColor: skill.color,
+            boxShadow: `0 0 12px ${skill.glow}`,
+          }}
+        />
       </div>
     </div>
   );
@@ -94,7 +112,6 @@ function SkillBar({
 export default function PortfolioScroll() {
   const heroRef = useRef<HTMLElement | null>(null);
   const projectsRef = useRef<HTMLElement | null>(null);
-  const skillsRef = useRef<HTMLElement | null>(null);
 
   const { scrollYProgress: heroProgress } = useScroll({
     target: heroRef,
@@ -147,15 +164,32 @@ export default function PortfolioScroll() {
     target: projectsRef,
     offset: ["start start", "end end"],
   });
-  const trackX = useSpring(useTransform(projectsProgress, [0, 1], ["0%", "-74%"]), {
+
+  const trackRef = useRef<HTMLDivElement>(null);
+  const limit = useMotionValue(0);
+
+  useEffect(() => {
+    if (!trackRef.current) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const trackWidth = entry.target.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        limit.set(Math.max(0, trackWidth - viewportWidth));
+      }
+    });
+    observer.observe(trackRef.current);
+    return () => observer.disconnect();
+  }, [limit]);
+
+  // Map progress directly from 0 to 1 with no start/end buffers
+  const trackXRaw = useTransform(projectsProgress, (v) => {
+    const currentLimit = limit.get();
+    return -v * currentLimit;
+  });
+  const trackX = useSpring(trackXRaw, {
     stiffness: 110,
     damping: 26,
     mass: 0.25,
-  });
-
-  const { scrollYProgress: skillsProgress } = useScroll({
-    target: skillsRef,
-    offset: ["start start", "end end"],
   });
 
   return (
@@ -217,70 +251,74 @@ export default function PortfolioScroll() {
         </div>
       </section>
 
-      <section id="projects" ref={projectsRef} className="relative h-[300vh]">
+      <section id="projects" ref={projectsRef} className="relative h-[300vh] mt-12 mb-24">
         <div className="sticky top-0 h-screen overflow-hidden">
           <div className="mx-auto flex h-full w-full max-w-7xl items-center">
-            <motion.div style={{ x: trackX }} className="projects-track">
+            <motion.div ref={trackRef} style={{ x: trackX }} className="projects-track">
               {projectSlides.map((slide) => (
                 <article key={slide.title} className="project-slide">
-                  <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Project</p>
-                  <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
-                    {slide.title}
-                  </h2>
-                  <p className="mt-4 text-base leading-8 text-slate-300">{slide.description}</p>
-                  <p className="mt-6 text-sm text-cyan-200/90">{slide.tech}</p>
+                  <Link href={`/projects/${slide.id}`} className="block group cursor-pointer">
+                    <div className="relative mb-5 h-[220px] w-full overflow-hidden rounded-2xl border border-cyan-400/20 bg-slate-900/30">
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 80vw, 40vw"
+                      />
+                    </div>
+                    <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Project</p>
+                    <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl group-hover:text-cyan-300 transition">
+                      {slide.title}
+                    </h2>
+                  </Link>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{slide.description}</p>
+                  <p className="mt-5 text-xs text-cyan-200/90 font-mono">{slide.tech}</p>
                 </article>
               ))}
+
+              {/* View More Projects Slide Card */}
+              <article className="project-slide flex flex-col justify-between border border-cyan-400/30 bg-slate-950/70 p-8">
+                <div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400 font-bold text-xl mb-6">
+                    +
+                  </div>
+                  <h2 className="text-3xl font-semibold text-white">Explore More Projects</h2>
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
+                    Discover further systems designed, including enterprise billing APIs, 
+                    E-Commerce architectures, logistics tracking dashboards, and consulting integrations.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Link
+                    href="/projects"
+                    className="inline-flex rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 select-none cursor-pointer"
+                  >
+                    View Gallery Grid →
+                  </Link>
+                </div>
+              </article>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section id="skills" ref={skillsRef} className="relative h-[240vh]">
-        <div className="sticky top-0 flex h-screen items-center">
-          <div className="mx-auto w-full max-w-6xl px-6 py-10">
-            <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Skills</p>
-            <h2 className="mt-3 text-4xl font-semibold text-white md:text-5xl">
-              3D skill progression
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
-              This section stays pinned until all bars complete their fill animation.
-            </p>
+      {/* Modern 3D Card Grid Skills layout (replaces the scroll-pinned progress bars) */}
+      <section id="skills" className="mx-auto w-full max-w-6xl px-6 py-20">
+        <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Expertise</p>
+        <h2 className="mt-3 text-4xl font-semibold text-white md:text-5xl">Skills & Capabilities</h2>
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 mb-12">
+          Glow-accented 3D cards that dynamically tilt on mouse move, representing specialized development stack elements.
+        </p>
 
-            <div className="mt-10 space-y-5">
-              {skills.map((skill) => {
-                return (
-                  <SkillBar
-                    key={skill.name}
-                    skillName={skill.name}
-                    skillValue={skill.value}
-                    color={skill.color}
-                    glow={skill.glow}
-                    progress={skillsProgress}
-                  />
-                );
-              })}
-            </div>
-          </div>
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-3">
+          {skills.map((skill) => (
+            <SkillCard key={skill.name} skill={skill} />
+          ))}
         </div>
       </section>
 
-      <section id="end" className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center px-6 text-center">
-        <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">End Screen</p>
-        <h2 className="mt-3 text-4xl font-semibold text-white md:text-5xl">
-          Journey complete
-        </h2>
-        <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300">
-          Horizontal scrolling stops here. Use the button below to smoothly return to the top.
-        </p>
-        <button
-          type="button"
-          onClick={() => globalThis.window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="mt-8 rounded-full border border-cyan-300/50 px-6 py-3 text-sm font-semibold text-cyan-100 transition hover:border-cyan-200 hover:text-cyan-50"
-        >
-          Scroll To Top
-        </button>
-      </section>
     </main>
   );
 }
+

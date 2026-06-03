@@ -12,10 +12,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
-body {
+html {
+  scroll-behavior: smooth;
   background: var(--background);
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: transparent;
 }
 
 .hero-fallback {
