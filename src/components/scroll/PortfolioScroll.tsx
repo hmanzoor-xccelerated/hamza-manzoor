@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useSpring, useTransform, useMotionValue } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 import type { CSSProperties, MouseEvent } from "react";
 
 const projectSlides = [
@@ -40,6 +40,18 @@ const projectSlides = [
     image: "/images/xeurix.png",
   },
 ];
+
+const PROJECT_SLIDE_COUNT = projectSlides.length + 1;
+
+function estimateProjectsTravel() {
+  if (typeof window === "undefined") return 0;
+  const slideWidth = Math.min(window.innerWidth * 0.78, 560);
+  const gap = 28;
+  const paddingInline = Math.max(24, (window.innerWidth - 1200) / 2) * 2;
+  const trackWidth =
+    paddingInline + PROJECT_SLIDE_COUNT * slideWidth + (PROJECT_SLIDE_COUNT - 1) * gap;
+  return Math.max(0, trackWidth - window.innerWidth);
+}
 
 const skills = [
   { name: "React.js / Frontend", value: 95, color: "#61dafb", glow: "#7dd3fc" },
@@ -166,25 +178,40 @@ export default function PortfolioScroll() {
   });
 
   const trackRef = useRef<HTMLDivElement>(null);
-  const limit = useMotionValue(0);
+  const limit = useMotionValue(estimateProjectsTravel());
+  const [projectsScrollHeight, setProjectsScrollHeight] = useState(
+    () => (typeof window !== "undefined" ? window.innerHeight + estimateProjectsTravel() : 0),
+  );
 
-  useEffect(() => {
-    if (!trackRef.current) return;
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const trackWidth = entry.target.scrollWidth;
-        const viewportWidth = window.innerWidth;
-        limit.set(Math.max(0, trackWidth - viewportWidth));
-      }
-    });
-    observer.observe(trackRef.current);
-    return () => observer.disconnect();
+  useLayoutEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const syncScrollDistance = () => {
+      const measured = Math.max(0, track.scrollWidth - window.innerWidth);
+      const travel = Math.max(measured, estimateProjectsTravel());
+      limit.set(travel);
+      setProjectsScrollHeight(window.innerHeight + travel);
+    };
+
+    syncScrollDistance();
+    requestAnimationFrame(syncScrollDistance);
+
+    const observer = new ResizeObserver(syncScrollDistance);
+    observer.observe(track);
+    for (const slide of track.querySelectorAll(".project-slide")) {
+      observer.observe(slide);
+    }
+
+    window.addEventListener("resize", syncScrollDistance);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", syncScrollDistance);
+    };
   }, [limit]);
 
-  // Map progress directly from 0 to 1 with no start/end buffers
-  const trackXRaw = useTransform(projectsProgress, (v) => {
-    const currentLimit = limit.get();
-    return -v * currentLimit;
+  const trackXRaw = useTransform([projectsProgress, limit], ([progress, maxTravel]) => {
+    return -(progress as number) * (maxTravel as number);
   });
   const trackX = useSpring(trackXRaw, {
     stiffness: 110,
@@ -251,10 +278,20 @@ export default function PortfolioScroll() {
         </div>
       </section>
 
-      <section id="projects" ref={projectsRef} className="relative h-[300vh] mt-12 mb-24">
-        <div className="sticky top-0 h-screen overflow-hidden">
-          <div className="mx-auto flex h-full w-full max-w-7xl items-center">
-            <motion.div ref={trackRef} style={{ x: trackX }} className="projects-track">
+      <section
+        id="projects"
+        ref={projectsRef}
+        className="relative"
+        style={{
+          height: projectsScrollHeight > 0 ? projectsScrollHeight : "calc(100vh + 220vh)",
+        }}
+      >
+        <div className="sticky top-0 z-20 flex h-svh w-full items-center overflow-hidden">
+          <motion.div
+            ref={trackRef}
+            style={{ x: trackX }}
+            className="projects-track min-w-max shrink-0"
+          >
               {projectSlides.map((slide) => (
                 <article key={slide.title} className="project-slide">
                   <Link href={`/projects/${slide.id}`} className="block group cursor-pointer">
@@ -298,13 +335,12 @@ export default function PortfolioScroll() {
                   </Link>
                 </div>
               </article>
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Modern 3D Card Grid Skills layout (replaces the scroll-pinned progress bars) */}
-      <section id="skills" className="mx-auto w-full max-w-6xl px-6 py-20">
+      <section id="skills" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-0">
         <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Expertise</p>
         <h2 className="mt-3 text-4xl font-semibold text-white md:text-5xl">Skills & Capabilities</h2>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 mb-12">
