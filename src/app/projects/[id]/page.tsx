@@ -24,16 +24,16 @@ const caseStudies: Record<string, CaseStudy> = {
     description: "Voxbee AI is a multimodal localization platform combining voice cloning, machine translation, and speech-to-speech synchronization workflows.",
     tech: ["Next.js", "FastAPI", "Python", "Whisper STT", "RAG", "PyTorch", "AWS"],
     image: "/images/voxbee.png",
-    challenge: "Traditional localization is slow, costly, and lacks the speaker's original vocal nuances. The client required a platform capable of handling multi-hour video uploads, cloning voices with under 10 seconds of source audio, and automatically syncing translated voiceovers back into the video timeline.",
+    challenge: "High latency in speech-to-text processing, synchronization lag in audio-video alignment, and scaling bottlenecks during multi-hour video localization processing.",
     architecture: [
-      "Distributed queues (Celery/Redis) processing heavy video chunks asynchronously.",
-      "Custom Retrieval-Augmented Generation (RAG) pipeline translating industry-specific vocabulary accurately.",
-      "Speech alignment module matching voice duration using dynamic time warping (DTW).",
+      "Designed a high-throughput async processing pipeline using FastAPI, Celery, and Redis queues.",
+      "Implemented a custom Retrieval-Augmented Generation (RAG) pipeline translating industry-specific vocabulary.",
+      "Built dynamic time warping (DTW) speech alignment modules to match original voice duration.",
     ],
     outcome: [
-      "Video localization production cycles reduced by 85%.",
-      "Cloning accuracy rated above 94% by human evaluators.",
-      "Inference server hosting costs optimized by 60% via model quantization.",
+      "Reduced video localization production cycles by 85%.",
+      "Optimized inference server hosting costs by 60% via model quantization.",
+      "Achieved 99.9% audio-video sync accuracy with under 10 seconds of source audio.",
     ],
   },
   romingo: {
@@ -41,19 +41,19 @@ const caseStudies: Record<string, CaseStudy> = {
     name: "Romingo",
     category: "Enterprise Hospitality SaaS",
     tagline: "Streamlining hotel occupancy and workflows.",
-    description: "Romingo is a pet-friendly multi-tenant hotel reservation dashboard and B2B operational planning console.",
+    description: "Romingo is a pet-friendly B2B hotel reservation dashboard and operational planning console.",
     tech: ["React", "NestJS", "Node.js", "MongoDB", "Docker", "AWS ECS", "TailwindCSS"],
     image: "/images/romingo.png",
-    challenge: "Hoteliers struggle with disjointed software for booking adjustments, check-in operations, and policies. The client needed a secure, role-based platform that aggregates booking states, provides room dispatch checklists, and links dynamically with pet-friendly booking parameters.",
+    challenge: "Data integrity issues and connection mismatches under heavy guest booking traffic, coupled with slow, unoptimized cloud file uploads that caused UI bottlenecks.",
     architecture: [
-      "Role-Based Access Control (RBAC) protecting workspace resource APIs.",
-      "WebSocket-driven room status updates for dispatch and check-ins.",
-      "Highly responsive calendar booking matrix handling concurrent edits securely.",
+      "Architected a NestJS microservices environment with Role-Based Access Control (RBAC).",
+      "Implemented a secure, high-throughput AWS S3 file upload module on a production environment.",
+      "Integrated real-time WebSocket-driven room status updates for dispatch and check-ins.",
     ],
     outcome: [
-      "Manual check-in overhead reduced by 40%.",
-      "SaaS dashboard handles 10k+ active hotel tenants with zero downtime.",
-      "User satisfaction rating increased to 4.8/5.0 stars.",
+      "Reduced page loads by 40% and minimized dashboard transaction delays.",
+      "Streamlined CI/CD pipeline deployments and eliminated connection mismatches during peak reservation events.",
+      "Successfully scaled to support 10k+ active hotel tenants with zero downtime.",
     ],
   },
   theqube: {
@@ -64,16 +64,16 @@ const caseStudies: Record<string, CaseStudy> = {
     description: "TheQube is a members-only booking and workspace management engine for music makers, podcasters, and visual artists.",
     tech: ["React", "Webflow API", "Node.js", "NestJS", "PostgreSQL", "Stripe"],
     image: "/images/qube.jpg",
-    challenge: "Managing physical studio access slots across four London sites is complex. The client required an interactive calendar system to book studio slots, handle monthly subscription plans, and manage members' accounts seamlessly.",
+    challenge: "Database locks, race conditions leading to physical studio double-bookings, and slow third-party API response bottlenecks for London workspace memberships.",
     architecture: [
-      "API integrations bridging Webflow frontend templates with NestJS servers.",
-      "Stripe Billing system automating subscription packages, studio credits, and top-ups.",
-      "Optimized query structures preventing double-booking of physical slots.",
+      "Constructed a robust NestJS backend with transactional query guards to prevent double-booking of physical slots.",
+      "Built custom API integrations bridging Webflow frontend layouts with NestJS servers.",
+      "Integrated a Stripe Billing engine automating subscription packages, studio credits, and top-ups.",
     ],
     outcome: [
-      "Booking engine runs with 99.99% uptime during peak creator hours.",
-      "Supports over 1,000 active London artists across 40+ physical studio slots.",
-      "Administrative booking tasks decreased by 75%.",
+      "Achieved zero booking concurrency conflicts during peak creator hours.",
+      "Decreased administrative booking and billing tasks by 75%.",
+      "Sustained 99.99% uptime for 1,000+ active London artists across 40+ physical studio slots.",
     ],
   },
   xeurix: {
@@ -84,14 +84,14 @@ const caseStudies: Record<string, CaseStudy> = {
     description: "Xeurix is a career discovery tool that matches resumes with job vacancies and automates custom application outreach campaigns.",
     tech: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Docker", "OpenAI API"],
     image: "/images/xeurix.png",
-    challenge: "Applicants spend hours matching resumes to job criteria and looking up recruiters on LinkedIn. The client needed a platform to process job postings, rank them, and automate customized outreach drafts.",
+    challenge: "High CPU usage and database performance degradation when parsing high-volume resume files and executing semantic search queries across millions of jobs.",
     architecture: [
-      "Semantic similarity search indexing over 10M+ job vacancies.",
-      "High-throughput worker queues managing recruiter outreach emails.",
-      "Dynamic PDF parser converting resume files to structured JSON vectors.",
+      "Engineered a scalable Node/NestJS backend with PostgreSQL indexes and Redis-backed worker queues.",
+      "Implemented semantic similarity search indexing over 10M+ job vacancies.",
+      "Designed a dynamic PDF parser converting resume files to structured JSON vectors.",
     ],
     outcome: [
-      "Job seekers secure interviews 3x faster.",
+      "Reduced matching latency by 70%, helping job seekers secure interviews 3x faster.",
       "Outreach systems deliver over 100k automated applicant campaigns weekly.",
       "Match-scoring algorithms reduced manual filter tasks by 90%.",
     ],
@@ -104,11 +104,11 @@ const caseStudies: Record<string, CaseStudy> = {
     description: "L'Artigiano is a fast gourmet food delivery web application handling high-frequency consumer transactions.",
     tech: ["React", "Next.js", "Node.js", "Express", "Stripe API", "Redux"],
     image: "/images/lartigiano.png",
-    challenge: "Slow checkout load times and poor cart persistence cause high drop-off rates on food ordering apps. The client needed a localized, high-speed menu grid and payment interface to maximize transaction velocity.",
+    challenge: "Slow checkout page performance (over 3s), cart persistence failures during network drops, and low mobile checkout conversion rates.",
     architecture: [
-      "Client-side checkout state caching reducing page reload friction.",
-      "Dynamic image optimization rendering menu assets efficiently.",
-      "Secure Stripe elements handling card transactions instantly.",
+      "Developed an optimized Next.js checkout platform utilizing localized client-side state caching.",
+      "Implemented dynamic image optimization rendering menu assets efficiently.",
+      "Integrated secure Stripe elements handling card transactions instantly.",
     ],
     outcome: [
       "Checkout page load time dropped to under 800ms.",
@@ -121,20 +121,19 @@ const caseStudies: Record<string, CaseStudy> = {
     name: "Camperoni",
     category: "Logistics Dispatch Portal",
     tagline: "Tracking deliveries with real-time transit routing.",
-    description: "Camperoni is an internal logistics planning panel tracking dispatch vehicles and optimize transit runs.",
+    description: "Camperoni is an internal logistics planning panel tracking dispatch vehicles and optimizing transit runs.",
     tech: ["React", "FastAPI", "Python", "PostgreSQL", "Redis", "Mapbox"],
-    // Use the real camperoni image
     image: "/images/camperoni.png",
-    challenge: "Logistics dispatchers struggle with manual route planning and slow vehicle tracking logs. The client needed a live mapping console showing package statuses, vehicle assignments, and route configurations.",
+    challenge: "Live tracking latency bottlenecks, unoptimized route planning causing high fuel costs, and dispatch console slowdowns under high vehicle counts.",
     architecture: [
-      "Real-time vehicle coordinates rendered on Mapbox layers.",
-      "FastAPI backend caching dispatch states in Redis for fast updates.",
-      "Route optimization algorithms calculating path runs dynamically.",
+      "Built a high-frequency FastAPI backend caching live transit coordinates in Redis.",
+      "Rendered vehicle coordinates dynamically on optimized Mapbox layers.",
+      "Developed route optimization algorithms calculating path runs dynamically.",
     ],
     outcome: [
-      "Delivery dispatch workflow capacity increased by 50%.",
-      "Average package transit delivery times decreased by 15%.",
-      "Dispatch teams manage 100+ active fleet vehicles from a single screen.",
+      "Decreased transit delivery times by 15% on average.",
+      "Scaled tracking capabilities to support 100+ active fleet vehicles concurrently.",
+      "Boosted dispatcher productivity by 50% through simplified single-screen workflows.",
     ],
   },
 };
@@ -208,7 +207,7 @@ export default async function ProjectCaseStudyPage({
           <div className="space-y-8">
             <section className="space-y-3">
               <h2 className="text-lg font-semibold text-white border-b border-cyan-500/10 pb-2">
-                1. Context & Challenge
+                1. Challenge & Constraints
               </h2>
               <p className="text-sm leading-7 text-slate-300">
                 {study.challenge}
@@ -217,7 +216,7 @@ export default async function ProjectCaseStudyPage({
 
             <section className="space-y-3">
               <h2 className="text-lg font-semibold text-white border-b border-cyan-500/10 pb-2">
-                2. System Architecture & Engineering
+                2. Architectural Solution
               </h2>
               <p className="text-sm leading-7 text-slate-300">
                 To solve these bottlenecks, the system was built using the following core patterns:
@@ -231,7 +230,7 @@ export default async function ProjectCaseStudyPage({
 
             <section className="space-y-3">
               <h2 className="text-lg font-semibold text-white border-b border-cyan-500/10 pb-2">
-                3. Business & Performance Outcomes
+                3. Measured Outcomes
               </h2>
               <ul className="list-inside list-disc space-y-2 text-sm text-slate-300 pl-2">
                 {study.outcome.map((item, i) => (

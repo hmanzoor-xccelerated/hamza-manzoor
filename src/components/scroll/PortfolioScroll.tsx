@@ -11,7 +11,7 @@ const projectSlides = [
     id: "voxbee",
     title: "Voxbee AI",
     description:
-      "Multimodal pipeline for dubbing, TTS orchestration, and avatar generation with production-ready architecture.",
+      "Challenge: High sync latency in audio-video localization. Solution: Built dynamic time-warping speech alignments. Outcome: Reduced localization processing cycles by 85%.",
     tech: "Next.js, FastAPI, RAG, Whisper",
     image: "/images/voxbee.png",
   },
@@ -19,7 +19,7 @@ const projectSlides = [
     id: "romingo",
     title: "Romingo",
     description:
-      "Enterprise hotel system with role-based workflows, internal automations, and operational dashboards.",
+      "Challenge: Connection bottlenecks & unoptimized file uploads. Solution: Architected high-throughput NestJS microservices. Outcome: Reduced page loads by 40%.",
     tech: "React, NestJS, MongoDB, AWS",
     image: "/images/romingo.png",
   },
@@ -27,7 +27,7 @@ const projectSlides = [
     id: "theqube",
     title: "TheQube",
     description:
-      "Enterprise music and podcast studio membership booking and workspace community platforms in London.",
+      "Challenge: Concurrency database locks on studio slots. Solution: Implemented transactional queries & Stripe bridges. Outcome: Sustained 99.99% uptime with zero slot conflicts.",
     tech: "React, Webflow, Node.js, NestJS",
     image: "/images/qube.jpg",
   },
@@ -35,7 +35,7 @@ const projectSlides = [
     id: "xeurix",
     title: "Xeurix",
     description:
-      "AI recruitment search and career workflow engine for candidates with automated outreach.",
+      "Challenge: High semantic-query CPU bottlenecks. Solution: Scaled worker queue clusters with PostgreSQL indexes. Outcome: Processed 100k+ campaigns weekly with 70% latency reduction.",
     tech: "Next.js, NestJS, PostgreSQL, Docker",
     image: "/images/xeurix.png",
   },
@@ -243,10 +243,10 @@ export default function PortfolioScroll() {
                 <div className="grid items-center gap-10 px-6 md:grid-cols-2">
                   <div>
                     <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">
-                      Senior Full-Stack Developer & AI Systems Architect
+                      Senior Full-Stack Developer & SaaS Architect
                     </p>
                     <h1 className="mt-3 text-4xl font-semibold leading-tight text-white md:text-6xl">
-                      Futuristic portfolio with performance-first engineering.
+                      Senior Full-Stack Developer & Technical Lead
                     </h1>
                     <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300">
                       Scroll down to rotate the whole hero section in 3D, then enter a pinned

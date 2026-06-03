@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hamza-manzoor.vercel.app/sitemap.xml

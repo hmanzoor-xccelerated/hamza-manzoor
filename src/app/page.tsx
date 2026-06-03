@@ -7,29 +7,41 @@ import PerformanceWidget from "@/components/sections/PerformanceWidget";
 export const dynamic = "force-static";
 
 export default function Home() {
-  const personSchema = {
+  const professionalServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Hamza Manzoor",
-    jobTitle: "Senior Full-Stack Developer & AI Systems Architect",
-    url: "https://hamza-manzoor.vercel.app",
-    knowsAbout: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "NestJS",
-      "FastAPI",
-      "LLM Engineering",
-      "Cloud Architecture",
-    ],
+    "@type": "ProfessionalService",
+    "name": "Hamza Manzoor - Software Development Services",
+    "image": "https://hamza-manzoor.vercel.app/og-image.png",
+    "url": "https://hamza-manzoor.vercel.app/",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lahore",
+      "addressRegion": "Punjab",
+      "addressCountry": "PK"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "31.5204",
+      "longitude": "74.3587"
+    },
+    "description": "Production-ready full-stack software engineering, specializing in Next.js, TypeScript, NestJS microservices, cloud deployments, and AI integrations.",
+    "knowsAbout": [
+      "Software Engineering",
+      "Full-Stack Web Development",
+      "Next.js Development",
+      "NestJS Backend Architecture",
+      "Cloud Infrastructure & DevOps",
+      "AI Agent Workflows"
+    ]
   };
 
   return (
     <>
       <Script
-        id="person-jsonld"
+        id="professional-service-jsonld"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
       />
       <div className="relative min-h-screen bg-transparent text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-100">
         <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6 border-b border-cyan-500/5">

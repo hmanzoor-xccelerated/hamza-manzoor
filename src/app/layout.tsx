@@ -16,36 +16,34 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hamza-manzoor.vercel.app"),
   title: {
-    default: "Hamza Manzoor | Senior Full-Stack Developer",
+    default: "Senior Full-Stack Developer & SaaS Architect | Hamza Manzoor",
     template: "%s | Hamza Manzoor",
   },
   description:
-    "Senior Full-Stack Developer and AI Systems Architect building high-performance SaaS and multimodal AI platforms.",
+    "Enterprise-grade full-stack web application development specializing in Next.js, NestJS, and AI automation. Building scalable software solutions for businesses globally and across major tech hubs like Lahore and Faisalabad.",
   keywords: [
     "Hamza Manzoor",
     "Full-Stack Developer",
-    "AI Systems Architect",
-    "Next.js Portfolio",
-    "React",
-    "Node.js",
-    "NestJS",
-    "FastAPI",
-    "AWS",
-    "GCP",
+    "SaaS Architect",
+    "Software Development Lahore",
+    "Next.js Developer Pakistan",
+    "NestJS Backend",
+    "AI Automation Systems",
+    "Custom Software Development",
   ],
   openGraph: {
-    title: "Hamza Manzoor | Senior Full-Stack Developer",
+    title: "Senior Full-Stack Developer & SaaS Architect | Hamza Manzoor",
     description:
-      "Building scalable SaaS and AI systems with modern web and cloud infrastructure.",
+      "Enterprise-grade full-stack web application development specializing in Next.js, NestJS, and AI automation. Building scalable software solutions for businesses globally and across major tech hubs like Lahore and Faisalabad.",
     url: "https://hamza-manzoor.vercel.app",
     siteName: "Hamza Manzoor Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hamza Manzoor | Senior Full-Stack Developer",
+    title: "Senior Full-Stack Developer & SaaS Architect | Hamza Manzoor",
     description:
-      "Building scalable SaaS and AI systems with modern web and cloud infrastructure.",
+      "Enterprise-grade full-stack web application development specializing in Next.js, NestJS, and AI automation. Building scalable software solutions for businesses globally and across major tech hubs like Lahore and Faisalabad.",
   },
   alternates: {
     canonical: "https://hamza-manzoor.vercel.app",

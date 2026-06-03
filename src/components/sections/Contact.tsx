@@ -11,6 +11,7 @@ export function Contact() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [activeTab, setActiveTab] = useState<"scheduler" | "message">("scheduler");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -32,14 +33,50 @@ export function Contact() {
     <section id="contact" className="mx-auto w-full max-w-4xl px-6 py-16">
       <div className="rounded-2xl border border-cyan-300/20 bg-slate-950/50 p-8 backdrop-blur shadow-2xl">
         <div className="text-center mb-8">
-          <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Connect</p>
-          <h2 className="mt-3 text-3xl font-semibold text-cyan-100 md:text-4xl">Start a Project Consultation</h2>
+          <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Lead Funnel & Strategy</p>
+          <h2 className="mt-3 text-3xl font-semibold text-cyan-100 md:text-4xl">Get a Free Architecture Review</h2>
           <p className="mt-2 text-sm text-slate-300">
-            Available for SaaS development, AI pipeline orchestration, and system migrations.
+            Let's discuss your project constraints, architecture scaling goals, and how we can optimize your tech stack.
           </p>
         </div>
 
-        {status === "success" ? (
+        {/* Tab Selection Switcher */}
+        <div className="flex border border-cyan-500/10 mb-8 p-1 bg-[#03060f]/60 rounded-full max-w-md mx-auto select-none">
+          <button
+            type="button"
+            onClick={() => setActiveTab("scheduler")}
+            className={`flex-1 py-2 text-xs font-semibold uppercase tracking-wider rounded-full transition-all cursor-pointer ${
+              activeTab === "scheduler"
+                ? "bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-400/10"
+                : "text-slate-400 hover:text-cyan-200"
+            }`}
+          >
+            Book Discovery Call
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab("message")}
+            className={`flex-1 py-2 text-xs font-semibold uppercase tracking-wider rounded-full transition-all cursor-pointer ${
+              activeTab === "message"
+                ? "bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-400/10"
+                : "text-slate-400 hover:text-cyan-200"
+            }`}
+          >
+            Submit Project Specs
+          </button>
+        </div>
+
+        {activeTab === "scheduler" ? (
+          <div className="relative w-full overflow-hidden rounded-xl bg-[#03060f]/40 border border-cyan-500/5 min-h-[600px] flex items-center justify-center">
+            <iframe
+              src={`${process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/hamza-manzoor"}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0b0f19&text_color=e2e8f0&primary_color=22d3ee`}
+              width="100%"
+              height="600"
+              className="border-0"
+              title="Calendly Scheduler"
+            />
+          </div>
+        ) : status === "success" ? (
           <div className="flex flex-col items-center justify-center py-10 space-y-4 font-mono text-cyan-200 text-sm">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 text-xl font-bold">
               ✓
@@ -51,7 +88,7 @@ export function Contact() {
             <button
               type="button"
               onClick={() => setStatus("idle")}
-              className="mt-6 rounded-full border border-cyan-300/40 px-5 py-2.5 hover:border-cyan-200 hover:text-white transition text-xs font-semibold"
+              className="mt-6 rounded-full border border-cyan-300/40 px-5 py-2.5 hover:border-cyan-200 hover:text-white transition text-xs font-semibold cursor-pointer"
             >
               Send Another Payload
             </button>
@@ -104,9 +141,9 @@ export function Contact() {
                 className="w-full rounded-lg border border-cyan-400/15 bg-[#03060f]/60 px-4 py-3 text-sm text-cyan-100 outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/20"
               >
                 <option value="<$10k">Less than $10k</option>
-                <option value="$10k - $25k">$10k - $25k</option>
-                <option value="$25k - $50k">$25k - $50k</option>
-                <option value="$50k+">$50k+ (Enterprise Architect)</option>
+                <option value="$10k - $25k">$10k - $25k (SaaS Launch / MVP)</option>
+                <option value="$25k - $50k">$25k - $50k (Custom Architecture)</option>
+                <option value="$50k+">$50k+ (Enterprise Scaling & AI Integrations)</option>
               </select>
             </div>
 
@@ -133,7 +170,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="w-full sm:w-auto rounded-full bg-cyan-400 px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:opacity-50 select-none flex items-center justify-center gap-2"
+                className="w-full sm:w-auto rounded-full bg-cyan-400 px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:opacity-50 select-none flex items-center justify-center gap-2 cursor-pointer"
               >
                 {status === "submitting" ? (
                   <>
@@ -141,7 +178,7 @@ export function Contact() {
                     Transmitting...
                   </>
                 ) : (
-                  "Submit Project Payload"
+                  "Book a Technical Discovery Call"
                 )}
               </button>
             </div>
