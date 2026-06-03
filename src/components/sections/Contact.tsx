@@ -17,8 +17,16 @@ export function Contact() {
   useEffect(() => {
     if (activeTab === "scheduler") {
       const initCalendly = () => {
-        if ((window as any).Calendly) {
-          (window as any).Calendly.initInlineWidgets();
+        try {
+          const elem = document.querySelector(".calendly-inline-widget");
+          if ((window as any).Calendly && elem && elem.children.length === 0) {
+            (window as any).Calendly.initInlineWidget({
+              url: "https://calendly.com/hamzamanzoor/15min?hide_event_type_details=1&hide_gdpr_banner=1",
+              parentElement: elem,
+            });
+          }
+        } catch (err) {
+          console.error("Failed to initialize Calendly widget:", err);
         }
       };
 
