@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { FormEvent, ChangeEvent } from "react";
+import Script from "next/script";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,28 @@ export function Contact() {
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [activeTab, setActiveTab] = useState<"scheduler" | "message">("scheduler");
+
+  useEffect(() => {
+    if (activeTab === "scheduler") {
+      const initCalendly = () => {
+        if ((window as any).Calendly) {
+          (window as any).Calendly.initInlineWidgets();
+        }
+      };
+
+      if ((window as any).Calendly) {
+        initCalendly();
+      } else {
+        const interval = setInterval(() => {
+          if ((window as any).Calendly) {
+            initCalendly();
+            clearInterval(interval);
+          }
+        }, 100);
+        return () => clearInterval(interval);
+      }
+    }
+  }, [activeTab]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -67,14 +90,18 @@ export function Contact() {
         </div>
 
         {activeTab === "scheduler" ? (
-          <div className="relative w-full overflow-hidden rounded-xl bg-[#03060f]/40 border border-cyan-500/5 min-h-[600px] flex items-center justify-center">
-            <iframe
-              src={`${process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/hamza-manzoor"}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0b0f19&text_color=e2e8f0&primary_color=22d3ee`}
-              width="100%"
-              height="600"
-              className="border-0"
-              title="Calendly Scheduler"
+          <div className="relative w-full overflow-hidden rounded-xl bg-[#03060f]/40 border border-cyan-500/5 min-h-[700px] flex items-center justify-center">
+            <Script
+              src="https://assets.calendly.com/assets/external/widget.js"
+              strategy="lazyOnload"
             />
+            {/* Calendly inline widget begin */}
+            <div
+              className="calendly-inline-widget w-full"
+              data-url="https://calendly.com/hamzamanzoor/15min?hide_event_type_details=1&hide_gdpr_banner=1"
+              style={{ minWidth: "320px", height: "700px" }}
+            />
+            {/* Calendly inline widget end */}
           </div>
         ) : status === "success" ? (
           <div className="flex flex-col items-center justify-center py-10 space-y-4 font-mono text-cyan-200 text-sm">
