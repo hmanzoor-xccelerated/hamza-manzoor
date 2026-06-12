@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://hamza-manzoor.vercel.app";
-  const projectIds = ["voxbee", "romingo", "theqube", "xeurix", "lartigiano", "camperoni"];
+  const projectIds = ["voxbee", "romingo", "theqube", "xeurix", "lartigiano", "camperoni", "whatshush", "logaura"];
 
   const projectUrls = projectIds.map((id) => ({
     url: `${baseUrl}/projects/${id}`,

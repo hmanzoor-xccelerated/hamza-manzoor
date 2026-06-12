@@ -62,6 +62,24 @@ const allProjects = [
     tech: "React, FastAPI, Python, PostgreSQL, Redis",
     image: "/images/camperoni.png",
   },
+  {
+    id: "whatshush",
+    name: "WhatsHush",
+    category: "Privacy Chrome Extension",
+    description: "Challenge: Screen-peeping / shoulder-surfing in public spaces. Solution: Engineered a canvas privacy blur Chrome extension overlay. Outcome: Secured active screen visual states with 100% blur protection.",
+    specs: ["Canvas element-blurring filters", "Chrome Extension runtime triggers", "Instant toggle keyboard hotkeys"],
+    tech: "JavaScript, HTML, CSS, Chrome Extension API",
+    image: "/images/whatshush.png",
+  },
+  {
+    id: "logaura",
+    name: "Logaura",
+    category: "NPM Logging Library",
+    description: "Challenge: Logging engine overhead & poor CLI display tags. Solution: Built custom color filters & high-frequency file writers. Outcome: Enhanced log processing efficiency with zero runtime lag.",
+    specs: ["Pre-configured color themes", "High-performance file rotators", "Minimal runtime execution overhead"],
+    tech: "Node.js, TypeScript, NPM package",
+    image: "/images/logaura.png",
+  },
 ];
 
 export default function ProjectsPage() {

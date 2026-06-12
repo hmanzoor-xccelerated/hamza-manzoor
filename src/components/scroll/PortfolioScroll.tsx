@@ -39,6 +39,22 @@ const projectSlides = [
     tech: "Next.js, NestJS, PostgreSQL, Docker",
     image: "/images/xeurix.png",
   },
+  {
+    id: "whatshush",
+    title: "WhatsHush",
+    description:
+      "Challenge: Screen-peeping / shoulder-surfing in public spaces. Solution: Engineered a canvas privacy blur Chrome extension overlay. Outcome: Secured active screen visual states with 100% blur protection.",
+    tech: "JavaScript, HTML, CSS, Chrome Extension API",
+    image: "/images/whatshush.png",
+  },
+  {
+    id: "logaura",
+    title: "Logaura",
+    description:
+      "Challenge: Logging engine overhead & poor CLI display tags. Solution: Built custom color filters & high-frequency file writers. Outcome: Enhanced log processing efficiency with zero runtime lag.",
+    tech: "Node.js, TypeScript, NPM package",
+    image: "/images/logaura.png",
+  },
 ];
 
 const PROJECT_SLIDE_COUNT = projectSlides.length + 1;

@@ -36,12 +36,57 @@ export default function Home() {
     ]
   };
 
+  const whatsHushSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "WhatsHush",
+    "operatingSystem": "ChromeOS, Windows, macOS, Linux",
+    "applicationCategory": "BrowserApplication",
+    "downloadUrl": "https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh?hl=en-US&utm_source=ext_sidebar",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "description": "WhatsHush is a privacy-first Google Chrome extension designed by Hamza Manzoor to blur sensitive chat details and profiles on WhatsApp Web dynamically on hover.",
+    "author": {
+      "@type": "Person",
+      "name": "Hamza Manzoor",
+      "url": "https://hamza-manzoor.vercel.app/"
+    }
+  };
+
+  const logauraSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "Logaura",
+    "codeRepository": "https://www.npmjs.com/package/logaura",
+    "programmingLanguage": "TypeScript, JavaScript",
+    "runtimePlatform": "Node.js",
+    "description": "Logaura is a highly optimized, custom console logging utility on the npm registry authored by Hamza Manzoor to streamline terminal outputs in microservices.",
+    "author": {
+      "@type": "Person",
+      "name": "Hamza Manzoor",
+      "url": "https://hamza-manzoor.vercel.app/"
+    }
+  };
+
   return (
     <>
       <Script
         id="professional-service-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+      />
+      <Script
+        id="whatshush-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(whatsHushSchema) }}
+      />
+      <Script
+        id="logaura-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(logauraSchema) }}
       />
       <div className="relative min-h-screen bg-transparent text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-100">
         <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6 border-b border-cyan-500/5">
