@@ -49,7 +49,7 @@ function FloatingParticles({ count }: Readonly<{ count: number }>) {
 }
 
 function PortraitOrb({ highQuality }: Readonly<{ highQuality: boolean }>) {
-  const portraitTexture = useTexture("/images/hamza-portrait.png");
+  const portraitTexture = useTexture("/images/hamza-portrait.jpg");
   const orbRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {

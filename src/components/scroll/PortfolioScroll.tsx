@@ -278,7 +278,7 @@ export default function PortfolioScroll() {
                   <div className="perspective-wrap">
                     <div className="hero-card">
                       <Image
-                        src="/images/hamza-portrait.png"
+                        src="/images/hamza-portrait.jpg"
                         alt="Hamza Manzoor portrait"
                         fill
                         className="object-cover"
