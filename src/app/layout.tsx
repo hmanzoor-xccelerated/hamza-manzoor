@@ -16,34 +16,35 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hamza-manzoor.vercel.app"),
   title: {
-    default: "Senior Full-Stack Developer & SaaS Architect | Hamza Manzoor",
+    default: "Senior Full-Stack Engineer & Solutions Architect | Hamza Manzoor",
     template: "%s | Hamza Manzoor",
   },
   description:
-    "Enterprise-grade full-stack web application development specializing in Next.js, NestJS, and AI automation. Building scalable software solutions for businesses globally and across major tech hubs like Lahore and Faisalabad.",
+    "Results-driven Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience designing, building, and scaling high-concurrency web applications, multi-tenant SaaS platforms, and enterprise AI orchestration architectures.",
   keywords: [
     "Hamza Manzoor",
-    "Full-Stack Developer",
-    "SaaS Architect",
+    "Full-Stack Engineer",
+    "Solutions Architect",
     "Software Development Lahore",
     "Next.js Developer Pakistan",
     "NestJS Backend",
-    "AI Automation Systems",
-    "Custom Software Development",
+    "AI Orchestration Systems",
+    "SaaS Architecture",
+    "High-Concurrency Web Applications",
   ],
   openGraph: {
-    title: "Senior Full-Stack Developer & SaaS Architect | Hamza Manzoor",
+    title: "Senior Full-Stack Engineer & Solutions Architect | Hamza Manzoor",
     description:
-      "Enterprise-grade full-stack web application development specializing in Next.js, NestJS, and AI automation. Building scalable software solutions for businesses globally and across major tech hubs like Lahore and Faisalabad.",
+      "Results-driven Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience designing, building, and scaling high-concurrency web applications, multi-tenant SaaS platforms, and enterprise AI orchestration architectures.",
     url: "https://hamza-manzoor.vercel.app",
     siteName: "Hamza Manzoor Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Senior Full-Stack Developer & SaaS Architect | Hamza Manzoor",
+    title: "Senior Full-Stack Engineer & Solutions Architect | Hamza Manzoor",
     description:
-      "Enterprise-grade full-stack web application development specializing in Next.js, NestJS, and AI automation. Building scalable software solutions for businesses globally and across major tech hubs like Lahore and Faisalabad.",
+      "Results-driven Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience designing, building, and scaling high-concurrency web applications, multi-tenant SaaS platforms, and enterprise AI orchestration architectures.",
   },
   alternates: {
     canonical: "https://hamza-manzoor.vercel.app",

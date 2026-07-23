@@ -10,7 +10,7 @@ export default function Home() {
   const professionalServiceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Hamza Manzoor - Software Development Services",
+    "name": "Hamza Manzoor - Software Development & Solutions Architecture Services",
     "image": "https://hamza-manzoor.vercel.app/og-image.png",
     "url": "https://hamza-manzoor.vercel.app/",
     "priceRange": "$$$",
@@ -25,14 +25,16 @@ export default function Home() {
       "latitude": "31.5204",
       "longitude": "74.3587"
     },
-    "description": "Production-ready full-stack software engineering, specializing in Next.js, TypeScript, NestJS microservices, cloud deployments, and AI integrations.",
+    "description": "Production-ready full-stack software engineering and solutions architecture, specializing in Next.js, NestJS microservices, high-concurrency event queues (BullMQ), AWS cloud deployments, and enterprise AI orchestration (RAG/TTS).",
     "knowsAbout": [
-      "Software Engineering",
+      "Software Engineering & System Design",
       "Full-Stack Web Development",
-      "Next.js Development",
-      "NestJS Backend Architecture",
-      "Cloud Infrastructure & DevOps",
-      "AI Agent Workflows"
+      "Solutions Architecture",
+      "Next.js & React Frontend",
+      "NestJS & Node.js Backend Architecture",
+      "Asynchronous Queue Systems (BullMQ)",
+      "Enterprise AI Orchestration & RAG Pipelines",
+      "Cloud Infrastructure & DevOps (AWS/Docker)"
     ]
   };
 
@@ -101,6 +103,9 @@ export default function Home() {
             <a href="#contact" className="hover:text-cyan-200 transition">
               Contact
             </a>
+            <a href="/faq" className="hover:text-cyan-200 transition">
+              FAQ
+            </a>
           </nav>
         </header>
 
@@ -135,7 +140,7 @@ export default function Home() {
 
         <footer className="mx-auto w-full max-w-6xl px-6 pb-12 pt-8 text-xs text-slate-500 border-t border-cyan-500/5 mt-10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>© {new Date().getFullYear()} Hamza Manzoor. Performance-first architecture.</p>
+            <p>© {new Date().getFullYear()} Hamza Manzoor. <a href="/faq" className="hover:text-cyan-300 transition text-[11px] underline ml-2">FAQ / AEO Index</a></p>
             <p className="font-mono text-[10px] text-cyan-300/40 uppercase tracking-widest">
               SECURE DEPLOYMENT : ACTIVE
             </p>

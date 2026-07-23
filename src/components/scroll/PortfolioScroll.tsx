@@ -9,34 +9,34 @@ import type { CSSProperties, MouseEvent } from "react";
 const projectSlides = [
   {
     id: "voxbee",
-    title: "Voxbee AI",
+    title: "Voxbee.ai",
     description:
-      "Challenge: High sync latency in audio-video localization. Solution: Built dynamic time-warping speech alignments. Outcome: Reduced localization processing cycles by 85%.",
-    tech: "Next.js, FastAPI, RAG, Whisper",
+      "Challenge: High-volume media upload latency and audio-video localization sync. Solution: Built secure NestJS direct-to-S3 presigned URLs, BullMQ workers, and dynamic time-warping speech alignments. Outcome: Reduced localization cycles by 85%.",
+    tech: "NestJS, React, Python, AWS (EC2, S3), Docker, PostgreSQL",
     image: "/images/voxbee.png",
   },
   {
     id: "romingo",
     title: "Romingo",
     description:
-      "Challenge: Connection bottlenecks & unoptimized file uploads. Solution: Architected high-throughput NestJS microservices. Outcome: Reduced page loads by 40%.",
-    tech: "React, NestJS, MongoDB, AWS",
+      "Challenge: Slow progress tracking and unoptimized localized content pipelines. Solution: Designed a modular content localization schema and optimized user progression tracking. Outcome: Reduced page loads by 40%.",
+    tech: "React, Next.js, Node.js, MongoDB, AWS",
     image: "/images/romingo.png",
   },
   {
     id: "theqube",
-    title: "TheQube",
+    title: "SalonX & TheQube",
     description:
-      "Challenge: Concurrency database locks on studio slots. Solution: Implemented transactional queries & Stripe bridges. Outcome: Sustained 99.99% uptime with zero slot conflicts.",
-    tech: "React, Webflow, Node.js, NestJS",
+      "Challenge: Concurrency database locks and security isolation across tenant spaces. Solution: Implemented white-label SaaS architectures using PostgreSQL Row-Level Security (RLS) and advisory locks. Outcome: Achieved 99.99% uptime with zero slot scheduling conflicts.",
+    tech: "React, NestJS, PostgreSQL, Stripe, Node.js",
     image: "/images/qube.jpg",
   },
   {
     id: "xeurix",
     title: "Xeurix",
     description:
-      "Challenge: High semantic-query CPU bottlenecks. Solution: Scaled worker queue clusters with PostgreSQL indexes. Outcome: Processed 100k+ campaigns weekly with 70% latency reduction.",
-    tech: "Next.js, NestJS, PostgreSQL, Docker",
+      "Challenge: High CPU usage on semantic queries across 100k+ candidate records. Solution: Optimized PostgreSQL indexes, scaled background workers, and implemented windowed rendering. Outcome: Reduced query latency by 70%.",
+    tech: "React.js, Node.js, PostgreSQL, TypeScript",
     image: "/images/xeurix.png",
   },
   {
@@ -71,14 +71,14 @@ function estimateProjectsTravel() {
 
 const skills = [
   { name: "React.js / Frontend", value: 95, color: "#61dafb", glow: "#7dd3fc" },
-  { name: "Next.js (App Router)", value: 92, color: "#ffffff", glow: "#f3f4f6" },
-  { name: "Node.js Platform", value: 93, color: "#68a063", glow: "#86efac" },
-  { name: "NestJS Framework", value: 90, color: "#e0234e", glow: "#fb7185" },
-  { name: "Python Systems", value: 90, color: "#3776ab", glow: "#93c5fd" },
-  { name: "FastAPI Engine", value: 88, color: "#009688", glow: "#2dd4bf" },
-  { name: "AI/LLM Engineering", value: 92, color: "#a855f7", glow: "#c084fc" },
-  { name: "Cloud & Devops (AWS/Docker)", value: 88, color: "#f59e0b", glow: "#fbbf24" },
-  { name: "Data (Postgres/Mongo)", value: 89, color: "#336791", glow: "#93c5fd" },
+  { name: "Next.js (App Router)", value: 94, color: "#ffffff", glow: "#f3f4f6" },
+  { name: "Node.js & NestJS", value: 93, color: "#e0234e", glow: "#fb7185" },
+  { name: "Python & FastAPI", value: 90, color: "#3776ab", glow: "#93c5fd" },
+  { name: "AI & LLM Orchestration", value: 92, color: "#a855f7", glow: "#c084fc" },
+  { name: "PostgreSQL (RLS & Locks)", value: 91, color: "#336791", glow: "#93c5fd" },
+  { name: "High-Concurrency Queues", value: 90, color: "#68a063", glow: "#86efac" },
+  { name: "Cloud & DevOps (AWS/Docker)", value: 89, color: "#f59e0b", glow: "#fbbf24" },
+  { name: "Security & Testing (RBAC/JWT)", value: 90, color: "#009688", glow: "#2dd4bf" },
 ];
 
 function SkillCard({
@@ -259,10 +259,10 @@ export default function PortfolioScroll() {
                 <div className="grid items-center gap-10 px-6 md:grid-cols-2">
                   <div>
                     <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">
-                      Senior Full-Stack Developer & SaaS Architect
+                      Senior Full-Stack Engineer & Solutions Architect
                     </p>
                     <h1 className="mt-3 text-4xl font-semibold leading-tight text-white md:text-6xl">
-                      Senior Full-Stack Developer & Technical Lead
+                      Senior Full-Stack Engineer & Solutions Architect
                     </h1>
                     <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300">
                       Scroll down to rotate the whole hero section in 3D, then enter a pinned

@@ -10,38 +10,38 @@ export const metadata: Metadata = {
 const allProjects = [
   {
     id: "voxbee",
-    name: "Voxbee AI",
-    category: "Speech AI & Dubbing",
-    description: "Challenge: Slow audio-video translation sync latency. Solution: Built dynamic time-warping speech alignments. Outcome: Reduced localization processing cycles by 85%.",
-    specs: ["High-speed Whisper STT processing", "Dynamic audio-video alignment engines", "RAG architectures for term localizations"],
-    tech: "Next.js, FastAPI, Python, RAG, PyTorch",
+    name: "Voxbee.ai",
+    category: "AI Voice & Translation SaaS",
+    description: "Challenge: High-volume media upload compute overhead and audio-video sync latency. Solution: Designed secure direct-to-S3 NestJS uploads via presigned URLs and dynamic time-warping speech alignments. Outcome: Reduced content localization cycles by 85%.",
+    specs: ["Secure direct S3 uploads via NestJS presigned URLs", "Managed containerized AI GPU worker nodes via BullMQ", "Integrated voice cloning & speech synthesis pipelines"],
+    tech: "NestJS, React, Python, AWS (EC2, S3), Docker, PostgreSQL, BullMQ",
     image: "/images/voxbee.png",
   },
   {
     id: "romingo",
     name: "Romingo",
-    category: "Enterprise Hospitality SaaS",
-    description: "Challenge: Connection bottlenecks & unoptimized file uploads. Solution: Architected high-throughput NestJS microservices. Outcome: Reduced page loads by 40%.",
-    specs: ["Complex user-role workspace pipelines", "Secure AWS cloud microservices", "Real-time occupancy charts & calendars"],
-    tech: "React, NestJS, MongoDB, Docker, AWS",
+    category: "Multilingual SaaS Platform",
+    description: "Challenge: Ingesting localized content schemas and tracking user progress across multilingual environments. Solution: Designed localized content ingestion and user progression tracking database architectures. Outcome: Reduced page loads by 40%.",
+    specs: ["Localized content ingestion systems", "Scalable user progression tracking architecture", "Responsive Next.js & React dashboards"],
+    tech: "React, Next.js, Node.js, MongoDB, AWS",
     image: "/images/romingo.png",
   },
   {
     id: "theqube",
-    name: "TheQube",
-    category: "Creator Space Booking Engine",
-    description: "Challenge: Concurrency database locks on studio slots. Solution: Implemented transactional queries & Stripe bridges. Outcome: Sustained 99.99% uptime with zero slot conflicts.",
-    specs: ["Interactive studio slots & calendar sync", "Webflow layout + API bridge", "Automated billing integrations"],
-    tech: "React, Webflow, Node.js, NestJS, Stripe",
+    name: "SalonX & TheQube",
+    category: "Multi-Tenant SaaS Engine",
+    description: "Challenge: Concurrency database locks on shared schedules and tenant isolation. Solution: Implemented white-label SaaS architectures using PostgreSQL Row-Level Security (RLS) and advisory locks. Outcome: Achieved zero double-booking concurrency conflicts.",
+    specs: ["White-label multi-tenant SaaS architecture", "Row-Level Security (RLS) database isolation", "PostgreSQL advisory locks to prevent double-bookings"],
+    tech: "React, NestJS, PostgreSQL, Node.js, Stripe",
     image: "/images/qube.jpg",
   },
   {
     id: "xeurix",
     name: "Xeurix",
-    category: "AI Career Engine",
-    description: "Challenge: High semantic-query CPU bottlenecks. Solution: Scaled worker queue clusters with PostgreSQL indexes. Outcome: Processed 100k+ campaigns weekly with 70% latency reduction.",
-    specs: ["Matches jobs using semantic analysis", "Outreach logging to 50M+ contacts", "High-concurrency postgres queues"],
-    tech: "Next.js, NestJS, PostgreSQL, Redis, Docker",
+    category: "Enterprise Recruitment SaaS",
+    description: "Challenge: Semantic search latency over 100k+ candidate records and code governance. Solution: Engineered windowed frontend rendering and optimized PostgreSQL query indexes. Outcome: Reduced search latency by 70%.",
+    specs: ["Windowed data rendering on React", "Optimized PostgreSQL queries & indexes", "Established code review & branch protection rules"],
+    tech: "React.js, Node.js, PostgreSQL, TypeScript",
     image: "/images/xeurix.png",
   },
   {
@@ -94,9 +94,14 @@ export default function ProjectsPage() {
         <Link href="/" className="text-sm font-semibold tracking-[0.18em] text-cyan-200/90 hover:text-cyan-100 transition">
           HM
         </Link>
-        <Link href="/" className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition">
-          ← Back to Dashboard
-        </Link>
+        <div className="flex gap-6">
+          <Link href="/faq" className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition">
+            FAQ
+          </Link>
+          <Link href="/" className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition">
+            ← Dashboard
+          </Link>
+        </div>
       </header>
 
       {/* Page Title */}

@@ -200,7 +200,7 @@ export function Contact() {
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-cyan-500/10">
               <span className="text-xs text-slate-400 font-mono">
-                Fallback: <a href="mailto:hello@hamzamanzoor.dev" className="text-cyan-400 hover:underline">hello@hamzamanzoor.dev</a>
+                Fallback: <a href="mailto:hamzamanzoor8234@gmail.com" className="text-cyan-400 hover:underline">hamzamanzoor8234@gmail.com</a>
               </span>
               <button
                 type="submit"
