@@ -69,24 +69,179 @@ function estimateProjectsTravel() {
   return Math.max(0, trackWidth - window.innerWidth);
 }
 
-const skills = [
-  { name: "React.js / Frontend", value: 95, color: "#61dafb", glow: "#7dd3fc" },
-  { name: "Next.js (App Router)", value: 94, color: "#ffffff", glow: "#f3f4f6" },
-  { name: "Node.js & NestJS", value: 93, color: "#e0234e", glow: "#fb7185" },
-  { name: "Python & FastAPI", value: 90, color: "#3776ab", glow: "#93c5fd" },
-  { name: "AI & LLM Orchestration", value: 92, color: "#a855f7", glow: "#c084fc" },
-  { name: "PostgreSQL (RLS & Locks)", value: 91, color: "#336791", glow: "#93c5fd" },
-  { name: "High-Concurrency Queues", value: 90, color: "#68a063", glow: "#86efac" },
-  { name: "Cloud & DevOps (AWS/Docker)", value: 89, color: "#f59e0b", glow: "#fbbf24" },
-  { name: "Security & Testing (RBAC/JWT)", value: 90, color: "#009688", glow: "#2dd4bf" },
+interface SkillItem {
+  id: string;
+  category: "frontend" | "backend" | "cloud";
+  name: string;
+  level: string;
+  value: number;
+  color: string;
+  glow: string;
+  badge: string;
+  tags: string[];
+  icon: React.ReactNode;
+}
+
+const skills: SkillItem[] = [
+  {
+    id: "react",
+    category: "frontend",
+    name: "React.js / Frontend",
+    level: "Mastery Level",
+    value: 95,
+    color: "#38bdf8",
+    glow: "#7dd3fc",
+    badge: "FRONTEND",
+    tags: ["React 19", "Hooks & Fiber", "Zustand / Redux", "Tailwind CSS"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="2" />
+        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(30 12 12)" />
+        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(90 12 12)" />
+        <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(150 12 12)" />
+      </svg>
+    ),
+  },
+  {
+    id: "nextjs",
+    category: "frontend",
+    name: "Next.js (App Router)",
+    level: "Production Lead",
+    value: 94,
+    color: "#f8fafc",
+    glow: "#e2e8f0",
+    badge: "FRAMEWORK",
+    tags: ["App Router", "SSR / ISR", "Turbopack", "SEO / AEO"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+  },
+  {
+    id: "nestjs",
+    category: "backend",
+    name: "Node.js & NestJS",
+    level: "Architect",
+    value: 93,
+    color: "#fb7185",
+    glow: "#fda4af",
+    badge: "MICROSERVICES",
+    tags: ["Microservices", "REST & GraphQL", "TypeScript", "TypeORM / Prisma"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="2" y="2" width="20" height="8" rx="2" />
+        <rect x="2" y="14" width="20" height="8" rx="2" />
+        <circle cx="6" cy="6" r="1" />
+        <circle cx="6" cy="18" r="1" />
+      </svg>
+    ),
+  },
+  {
+    id: "python",
+    category: "backend",
+    name: "Python & FastAPI",
+    level: "Advanced",
+    value: 90,
+    color: "#60a5fa",
+    glow: "#93c5fd",
+    badge: "BACKEND API",
+    tags: ["FastAPI", "Pydantic", "AsyncIO", "Celery Workers"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    ),
+  },
+  {
+    id: "ai",
+    category: "backend",
+    name: "AI & LLM Orchestration",
+    level: "Solutions Lead",
+    value: 92,
+    color: "#c084fc",
+    glow: "#e879f9",
+    badge: "AI PIPELINES",
+    tags: ["RAG Pipelines", "Whisper TTS", "LangChain", "Vector DBs"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 3" />
+      </svg>
+    ),
+  },
+  {
+    id: "postgres",
+    category: "cloud",
+    name: "PostgreSQL (RLS & Locks)",
+    level: "Expert",
+    value: 91,
+    color: "#38bdf8",
+    glow: "#7dd3fc",
+    badge: "DATABASE",
+    tags: ["Row-Level Security", "Advisory Locks", "pgvector", "Index Tuning"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </svg>
+    ),
+  },
+  {
+    id: "queues",
+    category: "backend",
+    name: "High-Concurrency Queues",
+    level: "Specialist",
+    value: 90,
+    color: "#4ade80",
+    glow: "#86efac",
+    badge: "EVENT MESH",
+    tags: ["BullMQ", "Redis Pub/Sub", "RabbitMQ", "Event Streams"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+  },
+  {
+    id: "cloud",
+    category: "cloud",
+    name: "Cloud & DevOps (AWS/Docker)",
+    level: "Senior",
+    value: 89,
+    color: "#fbbf24",
+    glow: "#fde047",
+    badge: "DEVOPS",
+    tags: ["AWS ECS / S3", "Docker Mesh", "GitHub Actions", "Terraform"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z" />
+      </svg>
+    ),
+  },
+  {
+    id: "security",
+    category: "cloud",
+    name: "Security & Testing (RBAC/JWT)",
+    level: "Architect",
+    value: 90,
+    color: "#2dd4bf",
+    glow: "#5eead4",
+    badge: "SECURITY",
+    tags: ["RBAC / ABAC", "JWT / OAuth2", "Jest / Cypress", "AES-256"],
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+  },
 ];
 
-function SkillCard({
-  skill,
-}: Readonly<{
-  skill: { name: string; value: number; color: string; glow: string };
-}>) {
+function SkillCard({ skill }: Readonly<{ skill: SkillItem }>) {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
@@ -96,44 +251,203 @@ function SkillCard({
     const xc = rect.width / 2;
     const yc = rect.height / 2;
     setRotate({
-      x: -(y - yc) / 5,
-      y: (x - xc) / 5,
+      x: -(y - yc) / 10,
+      y: (x - xc) / 10,
     });
+    setMousePos({ x, y });
   };
 
+  const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => {
     setRotate({ x: 0, y: 0 });
+    setIsHovered(false);
   };
 
   return (
     <div
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
         transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
-        transition: "transform 0.12s ease-out",
+        transition: "transform 0.15s ease-out, border-color 0.3s, box-shadow 0.3s",
+        borderColor: isHovered ? `${skill.color}60` : "rgba(34, 211, 238, 0.12)",
+        boxShadow: isHovered
+          ? `0 16px 40px -12px ${skill.color}30`
+          : "0 8px 30px -10px rgba(0, 0, 0, 0.6)",
       }}
-      className="relative flex flex-col justify-between p-6 rounded-2xl border border-cyan-300/15 bg-slate-950/40 backdrop-blur shadow-lg overflow-hidden group select-none cursor-pointer"
+      className="relative flex flex-col justify-between p-6 rounded-2xl border bg-slate-950/80 backdrop-blur-xl overflow-hidden group select-none transition-all duration-300 min-h-[260px]"
     >
+      {/* Dynamic Cursor Radial Spotlight */}
       <div
-        className="absolute -right-10 -top-10 h-24 w-24 rounded-full filter blur-2xl opacity-15 group-hover:opacity-35 transition-opacity duration-300 pointer-events-none"
+        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, ${skill.color}18, transparent 60%)`,
+        }}
+      />
+
+      {/* Top Ambient Corner Glow */}
+      <div
+        className="absolute -right-10 -top-10 h-32 w-32 rounded-full filter blur-3xl opacity-15 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
         style={{ backgroundColor: skill.glow }}
       />
+
       <div>
-        <h3 className="text-sm font-semibold text-slate-200">{skill.name}</h3>
-        <p className="mt-1 text-[11px] text-slate-400">Expertise Log</p>
+        {/* Header Row: Icon + Badge */}
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <div
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-slate-900/90 shadow-md transition-transform duration-300 group-hover:scale-110"
+            style={{ color: skill.color }}
+          >
+            {skill.icon}
+          </div>
+          <span
+            className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest font-semibold border"
+            style={{
+              color: skill.color,
+              borderColor: `${skill.color}35`,
+              backgroundColor: `${skill.color}12`,
+            }}
+          >
+            {skill.badge}
+          </span>
+        </div>
+
+        {/* Title & Level */}
+        <h3 className="text-base font-semibold text-white tracking-tight group-hover:text-cyan-200 transition-colors">
+          {skill.name}
+        </h3>
+        <p className="mt-1 text-xs text-slate-400 font-mono flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: skill.color }} />
+          <span>{skill.level}</span>
+        </p>
+
+        {/* Sub-skill Tech Pills */}
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {skill.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-2.5 py-1 rounded-md text-[10px] font-mono text-slate-300 bg-slate-900/80 border border-slate-800 group-hover:border-slate-700 transition-colors"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
-      <div className="mt-8 flex items-baseline justify-between border-t border-cyan-500/5 pt-4">
-        <span className="text-2xl font-bold tracking-tight text-white font-mono">{skill.value}%</span>
-        <span
-          className="h-2 w-2 rounded-full"
-          style={{
-            backgroundColor: skill.color,
-            boxShadow: `0 0 12px ${skill.glow}`,
-          }}
-        />
+
+      {/* Progress Bar & Proficiency Indicator */}
+      <div className="mt-6 pt-4 border-t border-slate-800/80">
+        <div className="flex items-center justify-between text-xs mb-2">
+          <span className="font-mono text-[11px] text-slate-400 uppercase tracking-wider">
+            Proficiency Rating
+          </span>
+          <span className="font-mono font-bold text-sm" style={{ color: skill.color }}>
+            {skill.value}%
+          </span>
+        </div>
+
+        {/* Glowing Progress Bar Track */}
+        <div className="h-2 w-full rounded-full bg-slate-900/90 overflow-hidden p-0.5 border border-slate-800">
+          <div
+            className="h-full rounded-full transition-all duration-700 ease-out relative"
+            style={{
+              width: `${skill.value}%`,
+              backgroundColor: skill.color,
+              boxShadow: `0 0 12px ${skill.color}`,
+            }}
+          >
+            <div className="absolute right-0 top-0 bottom-0 w-2 bg-white rounded-full opacity-80" />
+          </div>
+        </div>
       </div>
     </div>
+  );
+}
+
+function SkillsSection() {
+  const [activeCategory, setActiveCategory] = useState<"all" | "frontend" | "backend" | "cloud">("all");
+
+  const categories = [
+    { id: "all", label: "All Stack", count: skills.length },
+    { id: "frontend", label: "Frontend & UI", count: skills.filter((s) => s.category === "frontend").length },
+    { id: "backend", label: "Backend & AI", count: skills.filter((s) => s.category === "backend").length },
+    { id: "cloud", label: "Database & Cloud", count: skills.filter((s) => s.category === "cloud").length },
+  ];
+
+  const filteredSkills = skills.filter(
+    (skill) => activeCategory === "all" || skill.category === activeCategory
+  );
+
+  return (
+    <section id="skills" className="mx-auto w-full max-w-6xl px-6 pb-24 pt-4">
+      {/* Top Badge & Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-400/25 bg-cyan-400/10 text-cyan-300 text-xs font-mono tracking-wider uppercase mb-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-ping" />
+            <span>Production Tech Matrix</span>
+          </div>
+          <h2 className="text-4xl font-semibold text-white md:text-5xl tracking-tight">
+            Skills & Capabilities
+          </h2>
+          <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300">
+            Interactive, glow-accented 3D matrix featuring active cursor spotlights, sub-system frameworks, and core SLA proficiency metrics.
+          </p>
+        </div>
+
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl border border-cyan-500/15 bg-slate-950/80 backdrop-blur select-none">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => setActiveCategory(cat.id as any)}
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                activeCategory === cat.id
+                  ? "bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-400/20"
+                  : "text-slate-400 hover:text-cyan-200 hover:bg-slate-900/60"
+              }`}
+            >
+              <span>{cat.label}</span>
+              <span
+                className={`px-1.5 py-0.5 rounded-full text-[10px] ${
+                  activeCategory === cat.id ? "bg-slate-950/20 text-slate-950" : "bg-slate-800 text-slate-400"
+                }`}
+              >
+                {cat.count}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Tech Stack Metrics Strip */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 p-5 rounded-2xl border border-cyan-500/10 bg-slate-950/40 backdrop-blur">
+        <div className="border-r border-slate-800/60 pr-4">
+          <p className="text-2xl font-mono font-bold text-cyan-300">6+ YRS</p>
+          <p className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">Production Exp</p>
+        </div>
+        <div className="border-r border-slate-800/60 md:border-r pr-4 pl-0 md:pl-4">
+          <p className="text-2xl font-mono font-bold text-purple-300">100%</p>
+          <p className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">Type-Safe Code</p>
+        </div>
+        <div className="border-r border-slate-800/60 pr-4 pl-0 md:pl-4">
+          <p className="text-2xl font-mono font-bold text-emerald-300">&lt;50ms</p>
+          <p className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">API Latency SLA</p>
+        </div>
+        <div className="pl-0 md:pl-4">
+          <p className="text-2xl font-mono font-bold text-amber-300">99.99%</p>
+          <p className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">Uptime Record</p>
+        </div>
+      </div>
+
+      {/* 3D Skill Cards Grid */}
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {filteredSkills.map((skill) => (
+          <SkillCard key={skill.id} skill={skill} />
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -358,21 +672,8 @@ export default function PortfolioScroll() {
         </div>
       </section>
 
-      {/* Modern 3D Card Grid Skills layout (replaces the scroll-pinned progress bars) */}
-      <section id="skills" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-0">
-        <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Expertise</p>
-        <h2 className="mt-3 text-4xl font-semibold text-white md:text-5xl">Skills & Capabilities</h2>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 mb-12">
-          Glow-accented 3D cards that dynamically tilt on mouse move, representing specialized development stack elements.
-        </p>
-
-        <div className="grid gap-6 grid-cols-2 md:grid-cols-3">
-          {skills.map((skill) => (
-            <SkillCard key={skill.name} skill={skill} />
-          ))}
-        </div>
-      </section>
-
+      {/* High-Tech 3D Interactive Skills & Capabilities Matrix */}
+      <SkillsSection />
     </main>
   );
 }
