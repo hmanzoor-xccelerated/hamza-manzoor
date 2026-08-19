@@ -29,8 +29,8 @@ function FloatingParticles({ count }: Readonly<{ count: number }>) {
     return [pos, col];
   }, [count]);
 
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
+  useFrame(() => {
+    const time = performance.now() * 0.001;
     if (pointsRef.current) {
       pointsRef.current.rotation.y = time * 0.05;
       pointsRef.current.rotation.x = time * 0.02;
@@ -52,8 +52,8 @@ function PortraitOrb({ highQuality }: Readonly<{ highQuality: boolean }>) {
   const portraitTexture = useTexture("/images/hamza-portrait.jpg");
   const orbRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
+  useFrame(() => {
+    const time = performance.now() * 0.001;
     if (orbRef.current) {
       // Gentle floating distortion rotation
       orbRef.current.rotation.y = time * 0.15;

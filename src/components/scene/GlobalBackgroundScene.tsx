@@ -52,7 +52,7 @@ function FloatingCubes() {
   const cubeRefs = useRef<THREE.Mesh[]>([]);
 
   useFrame((state) => {
-    const time = state.clock.getElapsedTime();
+    const time = performance.now() * 0.001;
     const mouseX = state.mouse.x * 0.4;
     const mouseY = state.mouse.y * 0.4;
 
