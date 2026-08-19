@@ -17,35 +17,41 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hamza-manzoor.vercel.app"),
   title: {
-    default: "Senior Full-Stack Engineer & Solutions Architect | Hamza Manzoor",
+    default: "Hamza Manzoor | Senior Full-Stack Engineer & Solutions Architect",
     template: "%s | Hamza Manzoor",
   },
   description:
-    "Results-driven Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience designing, building, and scaling high-concurrency web applications, multi-tenant SaaS platforms, and enterprise AI orchestration architectures.",
+    "Official portfolio & architecture log of Hamza Manzoor — Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience in Next.js, NestJS, high-concurrency event queues, AWS cloud deployments, and enterprise AI orchestration.",
   keywords: [
     "Hamza Manzoor",
+    "Hamza Manzoor Full-Stack Engineer",
+    "Hamza Manzoor Solutions Architect",
+    "Hamza Manzoor Lahore",
+    "Hamza Manzoor Pakistan",
+    "Hamza Manzoor Software Engineer",
+    "Hamza Manzoor Portfolio",
     "Full-Stack Engineer",
     "Solutions Architect",
-    "Software Development Lahore",
     "Next.js Developer Pakistan",
     "NestJS Backend",
     "AI Orchestration Systems",
     "SaaS Architecture",
     "High-Concurrency Web Applications",
+
   ],
   openGraph: {
-    title: "Senior Full-Stack Engineer & Solutions Architect | Hamza Manzoor",
+    title: "Hamza Manzoor | Senior Full-Stack Engineer & Solutions Architect",
     description:
-      "Results-driven Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience designing, building, and scaling high-concurrency web applications, multi-tenant SaaS platforms, and enterprise AI orchestration architectures.",
+      "Official portfolio & architecture log of Hamza Manzoor — Senior Full-Stack Engineer & Solutions Architect specializing in Next.js, NestJS, high-concurrency event queues, and AI orchestration.",
     url: "https://hamza-manzoor.vercel.app",
     siteName: "Hamza Manzoor Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Senior Full-Stack Engineer & Solutions Architect | Hamza Manzoor",
+    title: "Hamza Manzoor | Senior Full-Stack Engineer & Solutions Architect",
     description:
-      "Results-driven Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience designing, building, and scaling high-concurrency web applications, multi-tenant SaaS platforms, and enterprise AI orchestration architectures.",
+      "Official portfolio & architecture log of Hamza Manzoor — Senior Full-Stack Engineer & Solutions Architect specializing in Next.js, NestJS, high-concurrency event queues, and AI orchestration.",
   },
   alternates: {
     canonical: "https://hamza-manzoor.vercel.app",

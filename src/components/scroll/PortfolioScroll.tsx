@@ -259,11 +259,14 @@ export default function PortfolioScroll() {
                 <div className="grid items-center gap-10 px-6 md:grid-cols-2">
                   <div>
                     <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">
-                      Senior Full-Stack Engineer & Solutions Architect
+                      Portfolio & Systems Architecture
                     </p>
                     <h1 className="mt-3 text-4xl font-semibold leading-tight text-white md:text-6xl">
-                      Senior Full-Stack Engineer & Solutions Architect
+                      Hamza Manzoor
                     </h1>
+                    <p className="mt-2 text-base font-semibold text-cyan-300">
+                      Senior Full-Stack Engineer & Solutions Architect
+                    </p>
                     <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300">
                       Scroll down to rotate the whole hero section in 3D, then enter a pinned
                       horizontal project journey from left to right.
@@ -308,49 +311,49 @@ export default function PortfolioScroll() {
             style={{ x: trackX }}
             className="projects-track min-w-max shrink-0"
           >
-              {projectSlides.map((slide) => (
-                <article key={slide.title} className="project-slide">
-                  <Link href={`/projects/${slide.id}`} className="block group cursor-pointer">
-                    <div className="relative mb-5 h-[220px] w-full overflow-hidden rounded-2xl border border-cyan-400/20 bg-slate-900/30">
-                      <Image
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 80vw, 40vw"
-                      />
-                    </div>
-                    <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Project</p>
-                    <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl group-hover:text-cyan-300 transition">
-                      {slide.title}
-                    </h2>
-                  </Link>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{slide.description}</p>
-                  <p className="mt-5 text-xs text-cyan-200/90 font-mono">{slide.tech}</p>
-                </article>
-              ))}
-
-              {/* View More Projects Slide Card */}
-              <article className="project-slide flex flex-col justify-between border border-cyan-400/30 bg-slate-950/70 p-8">
-                <div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400 font-bold text-xl mb-6">
-                    +
+            {projectSlides.map((slide) => (
+              <article key={slide.title} className="project-slide">
+                <Link href={`/projects/${slide.id}`} className="block group cursor-pointer">
+                  <div className="relative mb-5 h-[220px] w-full overflow-hidden rounded-2xl border border-cyan-400/20 bg-slate-900/30">
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 80vw, 40vw"
+                    />
                   </div>
-                  <h2 className="text-3xl font-semibold text-white">Explore More Projects</h2>
-                  <p className="mt-4 text-sm leading-7 text-slate-300">
-                    Discover further systems designed, including enterprise billing APIs, 
-                    E-Commerce architectures, logistics tracking dashboards, and consulting integrations.
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <Link
-                    href="/projects"
-                    className="inline-flex rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 select-none cursor-pointer"
-                  >
-                    View Gallery Grid →
-                  </Link>
-                </div>
+                  <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">Project</p>
+                  <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl group-hover:text-cyan-300 transition">
+                    {slide.title}
+                  </h2>
+                </Link>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{slide.description}</p>
+                <p className="mt-5 text-xs text-cyan-200/90 font-mono">{slide.tech}</p>
               </article>
+            ))}
+
+            {/* View More Projects Slide Card */}
+            <article className="project-slide flex flex-col justify-between border border-cyan-400/30 bg-slate-950/70 p-8">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400 font-bold text-xl mb-6">
+                  +
+                </div>
+                <h2 className="text-3xl font-semibold text-white">Explore More Projects</h2>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  Discover further systems designed, including enterprise billing APIs,
+                  E-Commerce architectures, logistics tracking dashboards, and consulting integrations.
+                </p>
+              </div>
+              <div className="mt-8">
+                <Link
+                  href="/projects"
+                  className="inline-flex rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 select-none cursor-pointer"
+                >
+                  View Gallery Grid →
+                </Link>
+              </div>
+            </article>
           </motion.div>
         </div>
       </section>

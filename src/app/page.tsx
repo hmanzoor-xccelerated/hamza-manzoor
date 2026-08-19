@@ -73,8 +73,47 @@ export default function Home() {
     }
   };
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hamza Manzoor",
+    "url": "https://hamza-manzoor.vercel.app/",
+    "image": "https://hamza-manzoor.vercel.app/og-image.png",
+    "jobTitle": "Senior Full-Stack Engineer & Solutions Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Solutions Architecture & Full-Stack Consulting"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lahore",
+      "addressRegion": "Punjab",
+      "addressCountry": "PK"
+    },
+    "sameAs": [
+      "https://github.com/hamzamanzoor",
+      "https://www.linkedin.com/in/hamzamanzoor",
+      "https://www.npmjs.com/package/logaura",
+      "https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh"
+    ],
+    "knowsAbout": [
+      "Full-Stack Web Development",
+      "Solutions Architecture",
+      "Next.js & React Frontend",
+      "NestJS & Node.js Microservices",
+      "Enterprise AI Orchestration & RAG",
+      "BullMQ Queue Systems",
+      "AWS Cloud Infrastructure"
+    ]
+  };
+
   return (
     <>
+      <Script
+        id="person-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
       <Script
         id="professional-service-jsonld"
         type="application/ld+json"
