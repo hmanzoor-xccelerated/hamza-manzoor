@@ -114,6 +114,16 @@ export default function GlobalBackgroundScene() {
 
   useEffect(() => {
     setMounted(true);
+    const originalWarn = console.warn;
+    console.warn = (...args: unknown[]) => {
+      if (typeof args[0] === "string" && args[0].includes("THREE.Clock")) {
+        return;
+      }
+      originalWarn(...args);
+    };
+    return () => {
+      console.warn = originalWarn;
+    };
   }, []);
 
   if (!mounted) {
