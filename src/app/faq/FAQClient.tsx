@@ -62,7 +62,7 @@ export default function FAQClient() {
     cat.items.map((item) => ({
       ...item,
       category: cat.title,
-    }))
+    })),
   );
 
   // Filter items based on selected category and search input
@@ -135,31 +135,37 @@ export default function FAQClient() {
       {filteredItems.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-4">
-            {filteredItems.slice(0, Math.ceil(filteredItems.length / 2)).map((item) => (
-              <AccordionItem
-                key={item.question}
-                question={item.question}
-                answer={item.answer}
-                isOpen={!!openIndexes[item.question]}
-                onClick={() => toggleOpen(item.question)}
-              />
-            ))}
+            {filteredItems
+              .slice(0, Math.ceil(filteredItems.length / 2))
+              .map((item) => (
+                <AccordionItem
+                  key={item.question}
+                  question={item.question}
+                  answer={item.answer}
+                  isOpen={!!openIndexes[item.question]}
+                  onClick={() => toggleOpen(item.question)}
+                />
+              ))}
           </div>
           <div className="space-y-4">
-            {filteredItems.slice(Math.ceil(filteredItems.length / 2)).map((item) => (
-              <AccordionItem
-                key={item.question}
-                question={item.question}
-                answer={item.answer}
-                isOpen={!!openIndexes[item.question]}
-                onClick={() => toggleOpen(item.question)}
-              />
-            ))}
+            {filteredItems
+              .slice(Math.ceil(filteredItems.length / 2))
+              .map((item) => (
+                <AccordionItem
+                  key={item.question}
+                  question={item.question}
+                  answer={item.answer}
+                  isOpen={!!openIndexes[item.question]}
+                  onClick={() => toggleOpen(item.question)}
+                />
+              ))}
           </div>
         </div>
       ) : (
         <div className="text-center py-16 rounded-2xl border border-cyan-500/5 bg-[#03060f]/30">
-          <p className="text-sm text-slate-400">No database queries matched your search parameters.</p>
+          <p className="text-sm text-slate-400">
+            No database queries matched your search parameters.
+          </p>
           <button
             type="button"
             onClick={() => {

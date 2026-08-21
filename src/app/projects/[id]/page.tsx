@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import type { Metadata } from "next";
 
 interface CaseStudy {
   id: string;
@@ -28,11 +29,24 @@ const caseStudies: Record<string, CaseStudy> = {
     id: "voxbee",
     name: "Voxbee.ai",
     category: "AI Voice & Translation SaaS",
-    tagline: "Localizing media content at scale with secure S3 pipelines and containerized AI workers.",
-    description: "Voxbee.ai is an enterprise AI-driven audio, voice cloning, and media localization platform that processes real-time voice synthesis and media translations.",
-    tech: ["NestJS", "React", "Python", "AWS (EC2, S3)", "Docker", "PostgreSQL", "BullMQ", "Celery", "Redis"],
+    tagline:
+      "Localizing media content at scale with secure S3 pipelines and containerized AI workers.",
+    description:
+      "Voxbee.ai is an enterprise AI-driven audio, voice cloning, and media localization platform that processes real-time voice synthesis and media translations.",
+    tech: [
+      "NestJS",
+      "React",
+      "Python",
+      "AWS (EC2, S3)",
+      "Docker",
+      "PostgreSQL",
+      "BullMQ",
+      "Celery",
+      "Redis",
+    ],
     image: "/images/voxbee.png",
-    challenge: "Handling high-bandwidth application server overhead during raw media transfers, managing long-running voice cloning inference queues, and securing endpoints against Insecure Direct Object Reference (IDOR) attacks.",
+    challenge:
+      "Handling high-bandwidth application server overhead during raw media transfers, managing long-running voice cloning inference queues, and securing endpoints against Insecure Direct Object Reference (IDOR) attacks.",
     architecture: [
       "Designed and deployed a secure direct-to-S3 media upload module using NestJS presigned URLs, avoiding server-side bandwidth congestion.",
       "Managed containerized AI worker node execution queues using BullMQ and Redis for real-time TTS synthesis and voice cloning.",
@@ -49,10 +63,20 @@ const caseStudies: Record<string, CaseStudy> = {
     name: "Romingo",
     category: "Multilingual SaaS Platform",
     tagline: "Scaling localized education ingestion and progress tracking.",
-    description: "Romingo is a multilingual SaaS and learning platform featuring structured progress tracking schemas and localized user environments.",
-    tech: ["React", "Next.js", "Node.js", "MongoDB", "AWS", "GitHub Actions", "TailwindCSS"],
+    description:
+      "Romingo is a multilingual SaaS and learning platform featuring structured progress tracking schemas and localized user environments.",
+    tech: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "AWS",
+      "GitHub Actions",
+      "TailwindCSS",
+    ],
     image: "/images/romingo.png",
-    challenge: "Structuring scalable databases for multi-language learning content and tracking complex student progress checkpoints across dynamic courses without latency bottlenecks.",
+    challenge:
+      "Structuring scalable databases for multi-language learning content and tracking complex student progress checkpoints across dynamic courses without latency bottlenecks.",
     architecture: [
       "Designed database localized content schemas enabling easy expansion of course languages.",
       "Engineered progress-tracking APIs with sub-second response times on deep nested category lookups.",
@@ -68,11 +92,22 @@ const caseStudies: Record<string, CaseStudy> = {
     id: "theqube",
     name: "SalonX & TheQube",
     category: "Multi-Tenant SaaS Engine",
-    tagline: "Enabling secure tenant isolation and conflict-free booking slots.",
-    description: "SalonX & TheQube are white-label multi-tenant SaaS platforms providing real-time booking, scheduling, and billing workflows for creative workspaces and salons.",
-    tech: ["React", "NestJS", "Node.js", "PostgreSQL", "Stripe", "Advisory Locks", "Row-Level Security"],
+    tagline:
+      "Enabling secure tenant isolation and conflict-free booking slots.",
+    description:
+      "SalonX & TheQube are white-label multi-tenant SaaS platforms providing real-time booking, scheduling, and billing workflows for creative workspaces and salons.",
+    tech: [
+      "React",
+      "NestJS",
+      "Node.js",
+      "PostgreSQL",
+      "Stripe",
+      "Advisory Locks",
+      "Row-Level Security",
+    ],
     image: "/images/qube.jpg",
-    challenge: "Preventing slot double-booking concurrency conflicts during peak user traffic and ensuring secure tenant data isolation in a shared database schema.",
+    challenge:
+      "Preventing slot double-booking concurrency conflicts during peak user traffic and ensuring secure tenant data isolation in a shared database schema.",
     architecture: [
       "Implemented white-label tenant isolation using PostgreSQL Row-Level Security (RLS) policies.",
       "Engineered scheduling transactional guards using PostgreSQL advisory locks to guarantee zero concurrency scheduling conflicts.",
@@ -88,11 +123,22 @@ const caseStudies: Record<string, CaseStudy> = {
     id: "xeurix",
     name: "Xeurix",
     category: "Enterprise Recruitment SaaS",
-    tagline: "Optimizing candidate search queries across high-volume applicant records.",
-    description: "Xeurix is an enterprise-grade recruitment SaaS platform mapping candidates to open jobs and managing recruiter outreach campaigns.",
-    tech: ["React.js", "Node.js", "PostgreSQL", "TypeScript", "TailwindCSS", "Docker", "ES6"],
+    tagline:
+      "Optimizing candidate search queries across high-volume applicant records.",
+    description:
+      "Xeurix is an enterprise-grade recruitment SaaS platform mapping candidates to open jobs and managing recruiter outreach campaigns.",
+    tech: [
+      "React.js",
+      "Node.js",
+      "PostgreSQL",
+      "TypeScript",
+      "TailwindCSS",
+      "Docker",
+      "ES6",
+    ],
     image: "/images/xeurix.png",
-    challenge: "Performance degradation and CPU bottlenecks when running semantic search queries over 100k+ candidate records in the PostgreSQL database.",
+    challenge:
+      "Performance degradation and CPU bottlenecks when running semantic search queries over 100k+ candidate records in the PostgreSQL database.",
     architecture: [
       "Led the frontend engineering team to build modular, component-driven layouts utilizing React.js and TypeScript.",
       "Reduced DOM weight and render latency by implementing windowed lists for candidate search results.",
@@ -109,10 +155,12 @@ const caseStudies: Record<string, CaseStudy> = {
     name: "L'Artigiano",
     category: "Gourmet Food Delivery",
     tagline: "Accelerating local e-commerce transactions.",
-    description: "L'Artigiano is a fast gourmet food delivery web application handling high-frequency consumer transactions.",
+    description:
+      "L'Artigiano is a fast gourmet food delivery web application handling high-frequency consumer transactions.",
     tech: ["React", "Next.js", "Node.js", "Express", "Stripe API", "Redux"],
     image: "/images/lartigiano.png",
-    challenge: "Slow checkout page performance (over 3s), cart persistence failures during network drops, and low mobile checkout conversion rates.",
+    challenge:
+      "Slow checkout page performance (over 3s), cart persistence failures during network drops, and low mobile checkout conversion rates.",
     architecture: [
       "Developed an optimized Next.js checkout platform utilizing localized client-side state caching.",
       "Implemented dynamic image optimization rendering menu assets efficiently.",
@@ -129,10 +177,12 @@ const caseStudies: Record<string, CaseStudy> = {
     name: "Camperoni",
     category: "Logistics Dispatch Portal",
     tagline: "Tracking deliveries with real-time transit routing.",
-    description: "Camperoni is an internal logistics planning panel tracking dispatch vehicles and optimizing transit runs.",
+    description:
+      "Camperoni is an internal logistics planning panel tracking dispatch vehicles and optimizing transit runs.",
     tech: ["React", "FastAPI", "Python", "PostgreSQL", "Redis", "Mapbox"],
     image: "/images/camperoni.png",
-    challenge: "Live tracking latency bottlenecks, unoptimized route planning causing high fuel costs, and dispatch console slowdowns under high vehicle counts.",
+    challenge:
+      "Live tracking latency bottlenecks, unoptimized route planning causing high fuel costs, and dispatch console slowdowns under high vehicle counts.",
     architecture: [
       "Built a high-frequency FastAPI backend caching live transit coordinates in Redis.",
       "Rendered vehicle coordinates dynamically on optimized Mapbox layers.",
@@ -148,11 +198,14 @@ const caseStudies: Record<string, CaseStudy> = {
     id: "whatshush",
     name: "WhatsHush",
     category: "Privacy Chrome Extension",
-    tagline: "Dynamically protecting WhatsApp Web screen layouts in public spaces.",
-    description: "WhatsHush is an open-source, client-side browser extension safeguarding personal data previews on messaging panels using dynamic canvas filters.",
+    tagline:
+      "Dynamically protecting WhatsApp Web screen layouts in public spaces.",
+    description:
+      "WhatsHush is an open-source, client-side browser extension safeguarding personal data previews on messaging panels using dynamic canvas filters.",
     tech: ["JavaScript", "HTML", "CSS", "Chrome Extension API", "Webpack"],
     image: "/images/whatshush.png",
-    challenge: "Shoulder-surfing and privacy exposure when using WhatsApp Web in public transport, cafes, or co-working environments. Sensitive conversations, profile pictures, and contact previews remain completely exposed to screen peeping.",
+    challenge:
+      "Shoulder-surfing and privacy exposure when using WhatsApp Web in public transport, cafes, or co-working environments. Sensitive conversations, profile pictures, and contact previews remain completely exposed to screen peeping.",
     architecture: [
       "Engineered secure, lightweight shadow DOM inject scripts to scan message elements.",
       "Implemented a dynamic blur overlay toggle triggered instantly by coordinates mouse hovers.",
@@ -166,28 +219,33 @@ const caseStudies: Record<string, CaseStudy> = {
     links: {
       github: "https://github.com/hamzamanzoor8234/WhatsHush",
       website: "https://whatshush.vercel.app/",
-      chromeWebStore: "https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh?hl=en-US&utm_source=ext_sidebar"
+      chromeWebStore:
+        "https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh?hl=en-US&utm_source=ext_sidebar",
     },
     faq: [
       {
         question: "What is WhatsHush and how does it protect user privacy?",
-        answer: "WhatsHush is a privacy-first browser extension for WhatsApp Web developed by Hamza Manzoor. It helps users protect their active screen states in public spaces, co-working environments, and offices by automatically blurring sensitive chat elements, contact names, profile pictures, and attachment previews. The blur is lifted dynamically only upon direct mouse hover, preventing shoulder-surfing."
+        answer:
+          "WhatsHush is a privacy-first browser extension for WhatsApp Web developed by Hamza Manzoor. It helps users protect their active screen states in public spaces, co-working environments, and offices by automatically blurring sensitive chat elements, contact names, profile pictures, and attachment previews. The blur is lifted dynamically only upon direct mouse hover, preventing shoulder-surfing.",
       },
       {
         question: "Where can I download WhatsHush and view its source code?",
-        answer: "WhatsHush can be officially downloaded from the Google Chrome Web Store. The complete open-source code repository is hosted on GitHub, and its official product landing page is deployed on Vercel."
-      }
-    ]
+        answer:
+          "WhatsHush can be officially downloaded from the Google Chrome Web Store. The complete open-source code repository is hosted on GitHub, and its official product landing page is deployed on Vercel.",
+      },
+    ],
   },
   logaura: {
     id: "logaura",
     name: "Logaura",
     category: "NPM Logging Library",
     tagline: "Streamlining console outputs and backend log metrics.",
-    description: "Logaura is a highly customizable and lightweight console logging package distributed on the npm registry for Node.js developers.",
+    description:
+      "Logaura is a highly customizable and lightweight console logging package distributed on the npm registry for Node.js developers.",
     tech: ["Node.js", "TypeScript", "ES6 Modules", "NPM Registry"],
     image: "/images/logaura.png",
-    challenge: "High runtime log overhead, cluttered console visual layouts, and the absence of lightweight namespace filtering configurations during backend microservice debugging.",
+    challenge:
+      "High runtime log overhead, cluttered console visual layouts, and the absence of lightweight namespace filtering configurations during backend microservice debugging.",
     architecture: [
       "Developed a custom terminal coloring format using ANSI escape sequences with zero runtime dependencies.",
       "Designed clean, structured namespace log filters supporting hierarchy mappings.",
@@ -199,20 +257,69 @@ const caseStudies: Record<string, CaseStudy> = {
       "Officially published package available to the open-source community on the NPM registry.",
     ],
     links: {
-      npm: "https://www.npmjs.com/package/logaura"
+      npm: "https://www.npmjs.com/package/logaura",
     },
     faq: [
       {
-        question: "What is the Logaura npm library and when should developers use it?",
-        answer: "Logaura is a high-performance, lightweight, and customizable logging utility package published on the npm registry. It is designed to optimize development and production logging workflows in Node.js environments by providing pre-configured color themes, clean namespaces, customized log levels, JSON outputs, and file rotation integrations with minimal overhead."
+        question:
+          "What is the Logaura npm library and when should developers use it?",
+        answer:
+          "Logaura is a high-performance, lightweight, and customizable logging utility package published on the npm registry. It is designed to optimize development and production logging workflows in Node.js environments by providing pre-configured color themes, clean namespaces, customized log levels, JSON outputs, and file rotation integrations with minimal overhead.",
       },
       {
-        question: "How do you install and integrate Logaura into a JavaScript or TypeScript project?",
-        answer: "Logaura can be installed using package managers with the command 'npm install logaura'. It supports both CommonJS (require) and ES Module (import) exports, rendering it compatible with Node.js backends like Express, NestJS, and standalone command-line scripts."
-      }
-    ]
+        question:
+          "How do you install and integrate Logaura into a JavaScript or TypeScript project?",
+        answer:
+          "Logaura can be installed using package managers with the command 'npm install logaura'. It supports both CommonJS (require) and ES Module (import) exports, rendering it compatible with Node.js backends like Express, NestJS, and standalone command-line scripts.",
+      },
+    ],
   },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const study = caseStudies[id];
+
+  if (!study) {
+    return {
+      title: "Project Not Found | Hamza Manzoor",
+    };
+  }
+
+  const pageUrl = `https://hamza-manzoor.vercel.app/projects/${id}`;
+
+  return {
+    title: `${study.name} — Architecture & Case Study | Hamza Manzoor`,
+    description: `${study.tagline} Engineered by Hamza Manzoor using ${study.tech.slice(0, 4).join(", ")}.`,
+    alternates: {
+      canonical: `/projects/${id}`,
+    },
+    openGraph: {
+      title: `${study.name} | Case Study & System Architecture`,
+      description: study.tagline,
+      url: pageUrl,
+      type: "article",
+      images: [
+        {
+          url: study.image,
+          width: 1200,
+          height: 630,
+          alt: `${study.name} - Architectural Case Study`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${study.name} | Hamza Manzoor`,
+      description: study.tagline,
+      images: [study.image],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return Object.keys(caseStudies).map((id) => ({ id }));
@@ -230,52 +337,123 @@ export default async function ProjectCaseStudyPage({
     notFound();
   }
 
-  // Dynamic schema generation for AEO/GEO crawls
-  let pageSchema = null;
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://hamza-manzoor.vercel.app",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: "https://hamza-manzoor.vercel.app/projects",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: study.name,
+        item: `https://hamza-manzoor.vercel.app/projects/${id}`,
+      },
+    ],
+  };
+
+  // Dynamic schema generation for all project types
+  let pageSchema: Record<string, unknown>;
   if (id === "whatshush") {
     pageSchema = {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "WhatsHush",
-      "operatingSystem": "ChromeOS, Windows, macOS, Linux",
-      "applicationCategory": "BrowserApplication",
-      "downloadUrl": "https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh?hl=en-US&utm_source=ext_sidebar",
-      "offers": {
+      name: "WhatsHush",
+      operatingSystem: "ChromeOS, Windows, macOS, Linux",
+      applicationCategory: "BrowserApplication",
+      downloadUrl:
+        "https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh?hl=en-US&utm_source=ext_sidebar",
+      offers: {
         "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "USD"
+        price: "0.00",
+        priceCurrency: "USD",
       },
-      "description": "WhatsHush is a privacy-first Google Chrome extension designed by Hamza Manzoor to blur sensitive chat details and profiles on WhatsApp Web dynamically on hover.",
-      "author": {
+      description: study.description,
+      author: {
         "@type": "Person",
-        "name": "Hamza Manzoor",
-        "url": "https://hamza-manzoor.vercel.app/"
-      }
+        name: "Hamza Manzoor",
+        url: "https://hamza-manzoor.vercel.app/",
+      },
     };
   } else if (id === "logaura") {
     pageSchema = {
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
-      "name": "Logaura",
-      "codeRepository": "https://www.npmjs.com/package/logaura",
-      "programmingLanguage": "TypeScript, JavaScript",
-      "runtimePlatform": "Node.js",
-      "description": "Logaura is a highly optimized, custom console logging utility on the npm registry authored by Hamza Manzoor to streamline terminal outputs in microservices.",
-      "author": {
+      name: "Logaura",
+      codeRepository: "https://www.npmjs.com/package/logaura",
+      programmingLanguage: "TypeScript, JavaScript",
+      runtimePlatform: "Node.js",
+      description: study.description,
+      author: {
         "@type": "Person",
-        "name": "Hamza Manzoor",
-        "url": "https://hamza-manzoor.vercel.app/"
-      }
+        name: "Hamza Manzoor",
+        url: "https://hamza-manzoor.vercel.app/",
+      },
+    };
+  } else {
+    pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      headline: `${study.name} — Architecture & Technical Case Study`,
+      description: study.tagline,
+      image: `https://hamza-manzoor.vercel.app${study.image}`,
+      author: {
+        "@type": "Person",
+        name: "Hamza Manzoor",
+        url: "https://hamza-manzoor.vercel.app/",
+      },
+      about: {
+        "@type": "SoftwareApplication",
+        name: study.name,
+        applicationCategory: study.category,
+      },
+      keywords: study.tech.join(", "),
     };
   }
 
+  // FAQ Schema if project contains Q&A
+  const faqSchema = study.faq
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: study.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <>
-      {pageSchema && (
+      <Script
+        id={`breadcrumb-schema-${id}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Script
+        id={`page-schema-${id}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
+      {faqSchema && (
         <Script
-          id={`page-schema-${id}`}
+          id={`faq-schema-${id}`}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
       <div className="relative min-h-screen bg-transparent text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-100 pb-20">
@@ -285,17 +463,29 @@ export default async function ProjectCaseStudyPage({
 
         {/* Nav header */}
         <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8 border-b border-cyan-500/5 mb-12">
-          <Link href="/" className="text-sm font-semibold tracking-[0.18em] text-cyan-200/90 hover:text-cyan-100 transition">
+          <Link
+            href="/"
+            className="text-sm font-semibold tracking-[0.18em] text-cyan-200/90 hover:text-cyan-100 transition"
+          >
             HM
           </Link>
           <div className="flex gap-6">
-            <Link href="/faq" className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition">
+            <Link
+              href="/faq"
+              className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition"
+            >
               FAQ
             </Link>
-            <Link href="/projects" className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition">
+            <Link
+              href="/projects"
+              className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition"
+            >
               Projects Index
             </Link>
-            <Link href="/" className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition">
+            <Link
+              href="/"
+              className="text-xs uppercase tracking-wider font-semibold text-slate-400 hover:text-cyan-200 transition"
+            >
               Dashboard
             </Link>
           </div>
@@ -345,7 +535,8 @@ export default async function ProjectCaseStudyPage({
                   2. Architectural Solution
                 </h2>
                 <p className="text-sm leading-7 text-slate-300">
-                  To solve these bottlenecks, the system was built using the following core patterns:
+                  To solve these bottlenecks, the system was built using the
+                  following core patterns:
                 </p>
                 <ul className="list-inside list-disc space-y-2 text-sm text-slate-300 pl-2">
                   {study.architecture.map((item, i) => (
@@ -383,7 +574,10 @@ export default async function ProjectCaseStudyPage({
                 </p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   {study.tech.map((t) => (
-                    <span key={t} className="rounded bg-cyan-400/10 px-2 py-1 text-[10.5px] font-mono text-cyan-200">
+                    <span
+                      key={t}
+                      className="rounded bg-cyan-400/10 px-2 py-1 text-[10.5px] font-mono text-cyan-200"
+                    >
                       {t}
                     </span>
                   ))}
@@ -459,12 +653,17 @@ export default async function ProjectCaseStudyPage({
                   AI & Search Engine Knowledge Graph (AEO/GEO Q&A)
                 </h2>
                 <p className="text-xs text-slate-400 leading-relaxed max-w-2xl">
-                  This section is optimized for Search Generative Experience (SGE) and AI search agents. It answers core user questions with high-authority entity references.
+                  This section is optimized for Search Generative Experience
+                  (SGE) and AI search agents. It answers core user questions
+                  with high-authority entity references.
                 </p>
               </div>
               <div className="space-y-4">
                 {study.faq.map((item, i) => (
-                  <div key={i} className="rounded-xl border border-cyan-500/5 bg-[#03060f]/40 p-5 space-y-2">
+                  <div
+                    key={i}
+                    className="rounded-xl border border-cyan-500/5 bg-[#03060f]/40 p-5 space-y-2"
+                  >
                     <h3 className="text-sm font-semibold text-cyan-200 font-sans">
                       Q: {item.question}
                     </h3>

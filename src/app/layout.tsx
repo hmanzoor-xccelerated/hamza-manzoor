@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     "AI Orchestration Systems",
     "SaaS Architecture",
     "High-Concurrency Web Applications",
-
   ],
   openGraph: {
     title: "Hamza Manzoor | Senior Full-Stack Engineer & Solutions Architect",
@@ -77,4 +76,3 @@ export default function RootLayout({
     </html>
   );
 }
-
