@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 import "./globals.css";
 import GlobalBackgroundScene from "@/components/scene/GlobalBackgroundScene";
 
@@ -57,6 +58,45 @@ export const metadata: Metadata = {
   },
 };
 
+const personProfilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: "Hamza Manzoor",
+    alternateName: "Hamza Manzoor Solutions Architect",
+    jobTitle: "Senior Full-Stack Engineer & Solutions Architect",
+    description:
+      "Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience in Next.js, NestJS microservices, PostgreSQL advisory locking, BullMQ event queues, AWS cloud infrastructure, and AI orchestration.",
+    url: "https://hamza-manzoor.vercel.app",
+    image: "https://hamza-manzoor.vercel.app/images/hamza-portraitfull.jpg",
+    email: "hamzamanzoor8234@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lahore",
+      addressRegion: "Punjab",
+      addressCountry: "PK",
+    },
+    sameAs: [
+      "https://github.com/hamzamanzoor8234",
+      "https://www.linkedin.com/in/hamzamanzoor8234",
+      "https://www.npmjs.com/package/logaura",
+      "https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh",
+    ],
+    knowsAbout: [
+      "Solutions Architecture",
+      "Full-Stack Software Engineering",
+      "Next.js App Router & React",
+      "NestJS & Node.js Microservices",
+      "PostgreSQL Concurrency & Advisory Locks",
+      "PostgreSQL Row-Level Security (RLS)",
+      "BullMQ Queue Systems & Redis",
+      "AWS Cloud Infrastructure & Docker",
+      "Enterprise AI Orchestration & Media Localization",
+    ],
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,6 +109,13 @@ export default function RootLayout({
     >
       <GoogleTagManager gtmId="GTM-WQVCKKXP" />
       <body className="min-h-full flex flex-col bg-transparent overflow-x-clip">
+        <Script
+          id="global-person-profilepage-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personProfilePageSchema),
+          }}
+        />
         <GlobalBackgroundScene />
         {children}
         <GoogleAnalytics gaId="G-BGLY6F2P8J" />

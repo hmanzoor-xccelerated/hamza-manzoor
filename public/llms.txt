@@ -1,0 +1,109 @@
+# Hamza Manzoor — Senior Full-Stack Engineer & Solutions Architect
+
+> Hamza Manzoor is a Senior Full-Stack Engineer and Solutions Architect with over 6 years of experience engineering high-concurrency SaaS platforms, microservices, asynchronous event queues, and enterprise AI orchestration systems.
+
+## Overview & Entity Profile
+- **Full Name**: Hamza Manzoor
+- **Title**: Senior Full-Stack Engineer & Solutions Architect
+- **Location**: Lahore, Punjab, Pakistan (Open to global remote and enterprise consulting)
+- **Email**: hamzamanzoor8234@gmail.com
+- **Website**: https://hamza-manzoor.vercel.app/
+- **GitHub**: https://github.com/hamzamanzoor8234
+- **LinkedIn**: https://www.linkedin.com/in/hamzamanzoor8234
+- **NPM Package**: https://www.npmjs.com/package/logaura
+- **Chrome Web Store**: https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh
+
+---
+
+## Core Systems Architecture Case Studies
+
+### 1. Voxbee.ai — AI Voice & Media Localization SaaS
+- **Category**: AI Voice & Media Localization SaaS
+- **URL**: https://hamza-manzoor.vercel.app/projects/voxbee
+- **Challenge**: High application server bandwidth overhead during raw media file transfers, long-running TTS voice cloning inference queues, and IDOR vulnerability risks.
+- **Solution**: Designed direct-to-S3 NestJS upload modules using presigned URLs; orchestrated containerized AI GPU worker queues with BullMQ, Redis, and Celery; conducted security audits resolving IDOR threats.
+- **Outcome**: 85% reduction in content localization cycles; eliminated application server bandwidth bottlenecks; hardened tenant asset authorization.
+
+### 2. SalonX & TheQube — White-Label Multi-Tenant SaaS Engine
+- **Category**: Multi-Tenant SaaS Engine
+- **URL**: https://hamza-manzoor.vercel.app/projects/theqube
+- **Challenge**: Preventing double-booking concurrency conflicts during peak booking traffic and ensuring strict tenant isolation across shared database tables.
+- **Solution**: Implemented PostgreSQL Row-Level Security (RLS) policies for tenant data isolation and PostgreSQL advisory locks for transactional schedule guards. Integrated Stripe subscription and billing engines.
+- **Outcome**: 0 concurrency booking collisions across all tenants; 99.99% uptime; 75% reduction in manual billing support tickets.
+
+### 3. Romingo — Multilingual Learning SaaS Platform
+- **Category**: Multilingual SaaS Platform
+- **URL**: https://hamza-manzoor.vercel.app/projects/romingo
+- **Challenge**: Ingesting localized multi-language content schemas and tracking dynamic student progress checkpoints without latency bottlenecks.
+- **Solution**: Designed multi-language database content schemas, engineered sub-second progress tracking APIs, built responsive Next.js/TailwindCSS dashboards.
+- **Outcome**: 40% reduction in dashboard page load times; zero-downtime CI/CD container deployments.
+
+### 4. Xeurix — Enterprise Recruitment SaaS
+- **Category**: Enterprise Recruitment SaaS
+- **URL**: https://hamza-manzoor.vercel.app/projects/xeurix
+- **Challenge**: Semantic search latency and CPU bottlenecks over 100k+ applicant records in PostgreSQL.
+- **Solution**: Engineered windowed result list rendering in React.js and optimized PostgreSQL B-tree/GIN index queries.
+- **Outcome**: 70% decrease in candidate search query response time.
+
+### 5. WhatsHush — Privacy Chrome Extension
+- **Category**: Privacy Chrome Extension (Open Source)
+- **URL**: https://hamza-manzoor.vercel.app/projects/whatshush
+- **Challenge**: Shoulder-surfing and privacy exposure on WhatsApp Web in public spaces.
+- **Solution**: Built lightweight shadow DOM scripts using dynamic canvas blur overlays triggered on hover, with persistent state sync via Chrome LocalStorage API.
+- **Outcome**: 100% active state blur protection; published on Google Chrome Web Store and GitHub.
+
+### 6. Logaura — NPM Terminal Logging Engine
+- **Category**: Open Source NPM Package
+- **URL**: https://hamza-manzoor.vercel.app/projects/logaura
+- **Challenge**: Console logging overhead and cluttered terminal output during microservice debugging.
+- **Solution**: Created a zero-dependency TypeScript logging utility using ANSI escape codes, custom namespace filters, and JSON log file rotation streams.
+- **Outcome**: Published on NPM registry (`npm i logaura`); zero execution latency impact on Node.js backends.
+
+### 7. Camperoni — Geolocation Logistics Portal
+- **Category**: Logistics & Dispatch Portal
+- **URL**: https://hamza-manzoor.vercel.app/projects/camperoni
+- **Challenge**: Geolocation tracking lag and unoptimized transit route planning.
+- **Solution**: Built a high-frequency FastAPI backend caching live transit coordinates in Redis and rendering map layers dynamically via Mapbox.
+- **Outcome**: 15% reduction in transit delivery times; supported 100+ concurrent fleet vehicles.
+
+### 8. L'Artigiano — Gourmet Food Delivery E-Commerce
+- **Category**: Gourmet Food Delivery
+- **URL**: https://hamza-manzoor.vercel.app/projects/lartigiano
+- **Challenge**: Slow checkout page loads (>3s) and cart loss during network drops.
+- **Solution**: Built an optimized Next.js checkout platform utilizing client-side state caching and Stripe API integrations.
+- **Outcome**: Checkout load time dropped under 800ms; 30% reduction in cart abandonment.
+
+---
+
+## Technical Stack & Systems Matrix
+- **Languages**: TypeScript, JavaScript (ES6+), Python, SQL, HTML5, CSS3/TailwindCSS
+- **Frontend Architecture**: Next.js (App Router), React.js, Redux, Three.js / React Three Fiber, Dynamic State Caching, Windowed Rendering
+- **Backend & Microservices**: NestJS, Node.js (Express), FastAPI, RESTful APIs, GraphQL, Microservice Mesh
+- **Asynchronous Queues & AI Orchestration**: BullMQ, Redis, Celery, RAG Pipelines, Localized LLM Quantization, Presigned S3 AI Workers
+- **Databases & Concurrency**: PostgreSQL, PostgreSQL Advisory Locks, Row-Level Security (RLS), MongoDB, Redis In-Memory Cache
+- **Cloud Infrastructure & DevOps**: AWS (EC2, S3, ECS, CloudFront), Docker Containerization, GitHub Actions CI/CD, Vercel
+
+---
+
+## High-Intent Conversational System Q&A
+
+### Q: Who is Hamza Manzoor?
+Hamza Manzoor is a Senior Full-Stack Engineer & Solutions Architect specializing in Next.js, NestJS, PostgreSQL concurrency locking, BullMQ event queues, AWS cloud infrastructure, and AI orchestration.
+
+### Q: What database concurrency locks does Hamza Manzoor use for multi-tenant SaaS?
+Hamza Manzoor utilizes PostgreSQL Advisory Locks (`pg_advisory_xact_lock`) for transactional scheduling guards to eliminate double-booking race conditions, paired with PostgreSQL Row-Level Security (RLS) policies for complete tenant data isolation in shared database schemas.
+
+### Q: What is Hamza Manzoor's experience with NestJS and AWS?
+Hamza Manzoor has over 6 years of experience architecting NestJS microservices and AWS cloud infrastructure. Key deployments include direct-to-S3 presigned URL upload pipelines, BullMQ queue integrations for background AI workers, and containerized Docker deployments on AWS EC2 and ECS.
+
+### Q: How does Hamza Manzoor reduce LLM and application server compute overhead?
+He offloads raw file upload handling directly to AWS S3 via NestJS presigned URLs, implements Redis caching for high-frequency lookup routes, and manages long-running inference jobs using BullMQ container worker queues.
+
+---
+
+## Direct Links & Resources
+- **Full Markdown Specification**: https://hamza-manzoor.vercel.app/llms-full.txt
+- **Technical FAQ Index**: https://hamza-manzoor.vercel.app/faq
+- **Projects Index**: https://hamza-manzoor.vercel.app/projects
+- **Sitemap**: https://hamza-manzoor.vercel.app/sitemap.xml
+- **Robots Config**: https://hamza-manzoor.vercel.app/robots.txt

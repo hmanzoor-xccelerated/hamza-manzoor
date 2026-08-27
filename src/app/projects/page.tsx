@@ -3,9 +3,35 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects Gallery | Hamza Manzoor",
+  title: "Projects & Systems Architecture Gallery | Hamza Manzoor",
   description:
-    "Browse the architectural specifications and engineering systems designed by Hamza Manzoor.",
+    "Browse the architectural specifications, systems case studies, and engineering solutions designed by Hamza Manzoor — featuring Next.js, NestJS, BullMQ, PostgreSQL Advisory Locks, and AWS.",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: "Projects & Systems Architecture Gallery | Hamza Manzoor",
+    description:
+      "Architectural specifications and engineering case studies including Voxbee.ai, SalonX/TheQube, Romingo, Xeurix, WhatsHush, and Logaura.",
+    url: "https://hamza-manzoor.vercel.app/projects",
+    siteName: "Hamza Manzoor Portfolio",
+    type: "website",
+    images: [
+      {
+        url: "/images/hamza-portraitfull.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hamza Manzoor - Systems & Architecture Gallery",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects & Systems Architecture Gallery | Hamza Manzoor",
+    description:
+      "Browse architectural specifications and case studies designed by Hamza Manzoor.",
+    images: ["/images/hamza-portraitfull.jpg"],
+  },
 };
 
 const allProjects = [
