@@ -291,24 +291,33 @@ export async function generateMetadata({
   }
 
   const pageUrl = `https://hamza-manzoor.vercel.app/projects/${id}`;
+  const imageUrl = `https://hamza-manzoor.vercel.app${study.image}`;
 
   return {
     title: `${study.name} — Architecture & Case Study | Hamza Manzoor`,
     description: `${study.tagline} Engineered by Hamza Manzoor using ${study.tech.slice(0, 4).join(", ")}.`,
+    keywords: [
+      study.name,
+      `${study.name} Architecture`,
+      study.category,
+      "Hamza Manzoor",
+      ...study.tech,
+    ],
     alternates: {
-      canonical: `/projects/${id}`,
+      canonical: pageUrl,
     },
     openGraph: {
       title: `${study.name} | Case Study & System Architecture`,
       description: study.tagline,
       url: pageUrl,
+      siteName: "Hamza Manzoor Portfolio",
       type: "article",
       images: [
         {
-          url: study.image,
+          url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `${study.name} - Architectural Case Study`,
+          alt: `${study.name} - Architectural Case Study by Hamza Manzoor`,
         },
       ],
     },
@@ -316,7 +325,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${study.name} | Hamza Manzoor`,
       description: study.tagline,
-      images: [study.image],
+      images: [imageUrl],
     },
   };
 }

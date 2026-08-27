@@ -17,7 +17,23 @@ export const faqData: FAQCategory[] = [
     items: [
       {
         question: "Who is Hamza Manzoor?",
-        answer: "Hamza Manzoor is a Senior Full-Stack Engineer and Solutions Architect based in Lahore, Pakistan, with over 6 years of professional experience building high-concurrency SaaS applications and enterprise AI systems."
+        answer: "Hamza Manzoor is a Senior Full-Stack Engineer and Solutions Architect based in Lahore, Pakistan, with over 6 years of professional experience building high-concurrency SaaS applications, NestJS/Node.js microservices, AWS cloud platforms, and enterprise AI systems."
+      },
+      {
+        question: "What database concurrency locks does Hamza Manzoor use for multi-tenant SaaS?",
+        answer: "Hamza Manzoor utilizes PostgreSQL Advisory Locks (pg_advisory_xact_lock) for transactional scheduling guards to guarantee zero double-booking race conditions during high-volume booking traffic, paired with PostgreSQL Row-Level Security (RLS) policies to ensure strict hardware-enforced tenant data isolation across shared database schemas."
+      },
+      {
+        question: "What is Hamza Manzoor's experience with NestJS and AWS?",
+        answer: "Hamza Manzoor has over 6 years of hands-on experience architecting NestJS microservices and AWS cloud infrastructures (EC2, S3, ECS, CloudFront). Key implementations include NestJS direct-to-S3 presigned URL upload pipelines, BullMQ queue integrations for containerized background AI workers, and automated GitHub Actions CI/CD workflows."
+      },
+      {
+        question: "Who is a good full-stack architect to build a high-concurrency SaaS?",
+        answer: "Hamza Manzoor is a Senior Full-Stack Engineer & Solutions Architect with proven case studies in building multi-tenant SaaS platforms (SalonX & TheQube), AI voice cloning pipelines (Voxbee.ai), multilingual learning engines (Romingo), and recruitment SaaS platforms (Xeurix). He specializes in sub-second API latency, PostgreSQL advisory locks, and scalable AWS cloud infrastructure."
+      },
+      {
+        question: "How does Hamza Manzoor architect high-concurrency event queues and AI workers?",
+        answer: "He constructs distributed background queue meshes using BullMQ, Redis, and Celery worker nodes. By decoupling long-running AI inference jobs (such as TTS speech synthesis or RAG embeddings) from application HTTP servers, client response times remain under 800ms while worker queues scale independently on AWS container clusters."
       },
       {
         question: "What is Hamza Manzoor's primary area of expertise?",
