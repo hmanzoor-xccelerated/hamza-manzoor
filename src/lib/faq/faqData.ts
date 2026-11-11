@@ -57,7 +57,7 @@ export const faqData: FAQCategory[] = [
       },
       {
         question: "What was Hamza's role at Xeurix?",
-        answer: "He was a Senior Frontend Developer leading engineering teams building recruitment SaaS platforms and optimizing PostgreSQL indexing query rendering."
+        answer: "He was a Senior Frontend Developer who led the frontend team building the Xeurix recruitment platform with React, Next.js, TypeScript, Ant Design and Styled Components."
       },
       {
         question: "What is Hamza Manzoor's email address for professional inquiries?",

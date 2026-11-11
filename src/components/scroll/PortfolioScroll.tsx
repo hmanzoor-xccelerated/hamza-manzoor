@@ -21,7 +21,7 @@ const projectSlides = [
     description:
       "Challenge: Slow API responses, weak search visibility, and unreliable deployments on a live hotel booking platform. Solution: Rewrote slow Sequelize queries, refactored service layers, and optimized SEO and page speed. Outcome: Faster API responses and stable releases.",
     tech: "React, Node.js, Sequelize, SQL",
-    image: "/images/romingo.png",
+    image: "/images/romingo.jpg",
   },
   {
     id: "theqube",
@@ -35,8 +35,8 @@ const projectSlides = [
     id: "xeurix",
     title: "Xeurix",
     description:
-      "Challenge: High CPU usage on semantic queries across 100k+ candidate records. Solution: Optimized PostgreSQL indexes, scaled background workers, and implemented windowed rendering. Outcome: Reduced query latency by 70%.",
-    tech: "React.js, Node.js, PostgreSQL, TypeScript",
+      "Challenge: High CPU usage on semantic queries across 100k+ candidate records. Solution: Led the frontend team, optimized database queries, and implemented windowed rendering. Outcome: Reduced query latency by 70%.",
+    tech: "React, Next.js, Node.js (Express), TypeScript, Ant Design, Styled Components, Knex, MariaDB, AWS, D3.js, GSAP",
     image: "/images/xeurix.png",
   },
   {
