@@ -201,6 +201,10 @@ export function Contact() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-cyan-500/10">
               <span className="text-xs text-slate-400 font-mono">
                 Fallback: <a href="mailto:hamzamanzoor8234@gmail.com" className="text-cyan-400 hover:underline">hamzamanzoor8234@gmail.com</a>
+                {" · "}
+                <a href="https://www.linkedin.com/in/hamzamanzoor8234" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">LinkedIn</a>
+                {" · "}
+                <a href="https://github.com/hamzamanzoor8234" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">GitHub</a>
               </span>
               <button
                 type="submit"

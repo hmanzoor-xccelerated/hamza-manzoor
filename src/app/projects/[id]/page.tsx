@@ -28,11 +28,11 @@ const caseStudies: Record<string, CaseStudy> = {
   voxbee: {
     id: "voxbee",
     name: "Voxbee.ai",
-    category: "AI Voice & Translation SaaS",
+    category: "AI Campaign Orchestration SaaS",
     tagline:
-      "Localizing media content at scale with secure S3 pipelines and containerized AI workers.",
+      "Running AI marketing campaigns and media studios on secure S3 pipelines and containerized AI workers.",
     description:
-      "Voxbee.ai is an enterprise AI-driven audio, voice cloning, and media localization platform that processes real-time voice synthesis and media translations.",
+      "Voxbee.ai is an AI campaign orchestration platform that learns a brand from its website, then plans, creates, approves, publishes, and measures social media campaigns, with built-in studios for image, video, voice, and dubbing.",
     tech: [
       "NestJS",
       "React",
@@ -61,31 +61,29 @@ const caseStudies: Record<string, CaseStudy> = {
   romingo: {
     id: "romingo",
     name: "Romingo",
-    category: "Multilingual SaaS Platform",
-    tagline: "Scaling localized education ingestion and progress tracking.",
+    category: "Hotel Booking Platform",
+    tagline: "Speeding up a pet-friendly hotel booking platform and stabilizing its releases.",
     description:
-      "Romingo is a multilingual SaaS and learning platform featuring structured progress tracking schemas and localized user environments.",
+      "Romingo is a pet-friendly hotel and vacation rental booking platform. I optimized its SEO and page speed, rewrote slow database queries, and fixed deployment issues.",
     tech: [
       "React",
-      "Next.js",
       "Node.js",
-      "MongoDB",
-      "AWS",
-      "GitHub Actions",
-      "TailwindCSS",
+      "Sequelize",
+      "SQL",
     ],
     image: "/images/romingo.png",
     challenge:
-      "Structuring scalable databases for multi-language learning content and tracking complex student progress checkpoints across dynamic courses without latency bottlenecks.",
+      "Slow API responses from heavy Sequelize queries, weak search visibility and page speed, and deployment problems on a live hotel and vacation rental booking platform.",
     architecture: [
-      "Designed database localized content schemas enabling easy expansion of course languages.",
-      "Engineered progress-tracking APIs with sub-second response times on deep nested category lookups.",
-      "Constructed responsive localized dashboards using Next.js/React and TailwindCSS.",
+      "Reviewed the codebase and rewrote slow Sequelize queries to cut database load.",
+      "Refactored service layers to reduce API response latency.",
+      "Optimized SEO and page speed across the booking pages.",
+      "Diagnosed and fixed deployment issues.",
     ],
     outcome: [
-      "Reduced progression tracker dashboard page load time by 40%.",
-      "Successfully supported multilingual content translation ingestion workflows with minimal administrative oversight.",
-      "Maintained zero downtime deployments via containerized CI/CD pipelines.",
+      "Faster API responses on the booking flows.",
+      "Better search visibility and page speed.",
+      "Stable, repeatable deployments.",
     ],
   },
   theqube: {

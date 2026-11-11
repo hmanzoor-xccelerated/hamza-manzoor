@@ -29,7 +29,7 @@ export const faqData: FAQCategory[] = [
       },
       {
         question: "Who is a good full-stack architect to build a high-concurrency SaaS?",
-        answer: "Hamza Manzoor is a Senior Full-Stack Engineer & Solutions Architect with proven case studies in building multi-tenant SaaS platforms (SalonX & TheQube), AI voice cloning pipelines (Voxbee.ai), multilingual learning engines (Romingo), and recruitment SaaS platforms (Xeurix). He specializes in sub-second API latency, PostgreSQL advisory locks, and scalable AWS cloud infrastructure."
+        answer: "Hamza Manzoor is a Senior Full-Stack Engineer & Solutions Architect with proven case studies in building multi-tenant SaaS platforms (SalonX & TheQube), AI campaign orchestration and media pipelines (Voxbee.ai), hotel booking platform optimization (Romingo), and recruitment SaaS platforms (Xeurix). He specializes in sub-second API latency, PostgreSQL advisory locks, and scalable AWS cloud infrastructure."
       },
       {
         question: "How does Hamza Manzoor architect high-concurrency event queues and AI workers?",
@@ -53,7 +53,7 @@ export const faqData: FAQCategory[] = [
       },
       {
         question: "What was Hamza Manzoor's role at TechmateTech LLC?",
-        answer: "He served as a Full Stack Developer, architecting and deploying the Marketing.biz analytics ingestion engine, ROMINGO multilingual platform, and commercial ordering backends."
+        answer: "He served as a Full Stack Developer, building the Marketing.biz analytics ingestion engine and optimizing Romingo, a pet-friendly hotel booking platform."
       },
       {
         question: "What was Hamza's role at Xeurix?",
@@ -125,15 +125,15 @@ export const faqData: FAQCategory[] = [
       },
       {
         question: "Does Hamza Manzoor have experience in multilingual localized systems?",
-        answer: "Yes, in projects like Romingo, he designed localized content ingestion and user progression tracking systems for multilingual learning environments."
+        answer: "Yes. On Voxbee.ai he works on dubbing and media localization pipelines that translate and re-voice content in many languages."
       },
       {
         question: "What is Voxbee.ai designed for?",
-        answer: "Voxbee.ai is an enterprise AI-driven audio and voice intelligence platform handling voice cloning, TTS synthesis, and media localization workflows."
+        answer: "Voxbee.ai is an AI campaign orchestration platform. It learns a brand from its website, then plans, creates, approves, publishes, and measures social media campaigns, with built-in studios for image, video, voice, and dubbing."
       },
       {
         question: "What is Romingo?",
-        answer: "Romingo is a multilingual SaaS and learning platform featuring structured progress tracking and localized user interfaces."
+        answer: "Romingo is a pet-friendly hotel and vacation rental booking platform. Hamza optimized its SEO and page speed, rewrote slow Sequelize queries, and fixed deployment issues."
       },
       {
         question: "What is SalonX?",

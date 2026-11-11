@@ -95,8 +95,8 @@ export default function Home() {
       addressCountry: "PK",
     },
     sameAs: [
-      "https://github.com/hamzamanzoor",
-      "https://www.linkedin.com/in/hamzamanzoor",
+      "https://github.com/hamzamanzoor8234",
+      "https://www.linkedin.com/in/hamzamanzoor8234",
       "https://www.npmjs.com/package/logaura",
       "https://chromewebstore.google.com/detail/whatshush/kfkhoepldonalkpldnffaeanoffkgbkh",
     ],

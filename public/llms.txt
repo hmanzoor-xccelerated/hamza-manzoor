@@ -17,8 +17,8 @@
 
 ## Core Systems Architecture Case Studies
 
-### 1. Voxbee.ai — AI Voice & Media Localization SaaS
-- **Category**: AI Voice & Media Localization SaaS
+### 1. Voxbee.ai — AI Campaign Orchestration SaaS
+- **Category**: AI Campaign Orchestration SaaS (with image, video, voice, and dubbing studios)
 - **URL**: https://hamza-manzoor.vercel.app/projects/voxbee
 - **Challenge**: High application server bandwidth overhead during raw media file transfers, long-running TTS voice cloning inference queues, and IDOR vulnerability risks.
 - **Solution**: Designed direct-to-S3 NestJS upload modules using presigned URLs; orchestrated containerized AI GPU worker queues with BullMQ, Redis, and Celery; conducted security audits resolving IDOR threats.
@@ -31,12 +31,12 @@
 - **Solution**: Implemented PostgreSQL Row-Level Security (RLS) policies for tenant data isolation and PostgreSQL advisory locks for transactional schedule guards. Integrated Stripe subscription and billing engines.
 - **Outcome**: 0 concurrency booking collisions across all tenants; 99.99% uptime; 75% reduction in manual billing support tickets.
 
-### 3. Romingo — Multilingual Learning SaaS Platform
-- **Category**: Multilingual SaaS Platform
+### 3. Romingo — Pet-Friendly Hotel Booking Platform
+- **Category**: Hotel Booking Platform
 - **URL**: https://hamza-manzoor.vercel.app/projects/romingo
-- **Challenge**: Ingesting localized multi-language content schemas and tracking dynamic student progress checkpoints without latency bottlenecks.
-- **Solution**: Designed multi-language database content schemas, engineered sub-second progress tracking APIs, built responsive Next.js/TailwindCSS dashboards.
-- **Outcome**: 40% reduction in dashboard page load times; zero-downtime CI/CD container deployments.
+- **Challenge**: Slow API responses from heavy Sequelize queries, weak search visibility and page speed, and deployment problems on a live hotel and vacation rental booking platform.
+- **Solution**: Rewrote slow Sequelize queries, refactored service layers, optimized SEO and page speed, and fixed deployment issues.
+- **Outcome**: Faster API responses, better search visibility, and stable deployments.
 
 ### 4. Xeurix — Enterprise Recruitment SaaS
 - **Category**: Enterprise Recruitment SaaS

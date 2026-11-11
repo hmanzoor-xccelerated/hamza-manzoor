@@ -5,7 +5,7 @@
 ## 1. Professional Entity Profile
 - **Name**: Hamza Manzoor
 - **Title**: Senior Full-Stack Engineer & Solutions Architect
-- **Experience**: 6+ Years of Professional Software Engineering & System Architecture
+- **Experience**: 7+ Years of Professional Software Engineering & System Architecture
 - **Location**: Lahore, Punjab, Pakistan (Available for Global Remote Engineering & Architectural Consulting)
 - **Primary Contact**: hamzamanzoor8234@gmail.com
 - **Portfolio & Systems Site**: https://hamza-manzoor.vercel.app/
@@ -45,9 +45,9 @@
 
 ## 3. Deep-Dive Case Studies & Systems Breakdown
 
-### Case Study 1: Voxbee.ai (AI Voice & Media Localization SaaS)
+### Case Study 1: Voxbee.ai (AI Campaign Orchestration SaaS)
 - **URL**: https://hamza-manzoor.vercel.app/projects/voxbee
-- **Category**: AI Voice & Media Localization SaaS
+- **Category**: AI Campaign Orchestration SaaS (with image, video, voice, and dubbing studios)
 - **Technical Challenge**:
   Processing large multi-gigabyte audio/video media files caused massive application server bandwidth bottlenecks and CPU consumption during upload streaming. Concurrently, long-running TTS (Text-to-Speech) voice cloning inference tasks required distributed worker queues, while candidate media files faced potential IDOR security threats.
 - **Architectural Solution**:
@@ -73,18 +73,19 @@
   - 99.99% system availability during high traffic spikes.
   - 75% reduction in manual billing support operations.
 
-### Case Study 3: Romingo (Multilingual SaaS Platform)
+### Case Study 3: Romingo (Pet-Friendly Hotel Booking Platform)
 - **URL**: https://hamza-manzoor.vercel.app/projects/romingo
-- **Category**: Multilingual SaaS Platform
+- **Category**: Hotel Booking Platform
 - **Technical Challenge**:
-  Dynamic multi-language course content schema expansion degraded database query speeds when retrieving deep nested progression checkpoints for thousands of active students.
+  A live pet-friendly hotel and vacation rental booking platform had slow API responses from heavy Sequelize queries, weak search visibility and page speed, and recurring deployment problems.
 - **Architectural Solution**:
-  1. Designed structured MongoDB/PostgreSQL multilingual document schemas enabling instant language translation ingestion without schema alterations.
-  2. Optimized database indexes and progress tracking API routes to deliver sub-second response times.
-  3. Deployed responsive Next.js dashboards backed by automated containerized GitHub Actions CI/CD pipelines.
-- **Quantifiable Outcomes**:
-  - 40% reduction in progression dashboard page render latency.
-  - Zero-downtime automated production deployments.
+  1. Reviewed the codebase and rewrote slow Sequelize queries to cut database load.
+  2. Refactored service layers to reduce API response latency.
+  3. Optimized SEO and page speed, and fixed deployment issues.
+- **Outcomes**:
+  - Faster API responses on the booking flows.
+  - Better search visibility and page speed.
+  - Stable, repeatable deployments.
 
 ### Case Study 4: Xeurix (Enterprise Recruitment SaaS)
 - **URL**: https://hamza-manzoor.vercel.app/projects/xeurix

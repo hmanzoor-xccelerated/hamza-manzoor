@@ -38,7 +38,7 @@ const allProjects = [
   {
     id: "voxbee",
     name: "Voxbee.ai",
-    category: "AI Voice & Translation SaaS",
+    category: "AI Campaign Orchestration SaaS",
     description:
       "Challenge: High-volume media upload compute overhead and audio-video sync latency. Solution: Designed secure direct-to-S3 NestJS uploads via presigned URLs and dynamic time-warping speech alignments. Outcome: Reduced content localization cycles by 85%.",
     specs: [
@@ -52,15 +52,15 @@ const allProjects = [
   {
     id: "romingo",
     name: "Romingo",
-    category: "Multilingual SaaS Platform",
+    category: "Hotel Booking Platform",
     description:
-      "Challenge: Ingesting localized content schemas and tracking user progress across multilingual environments. Solution: Designed localized content ingestion and user progression tracking database architectures. Outcome: Reduced page loads by 40%.",
+      "Challenge: Slow API responses, weak search visibility, and unreliable deployments on a live hotel booking platform. Solution: Rewrote slow Sequelize queries, refactored service layers, and optimized SEO and page speed. Outcome: Faster API responses and stable releases.",
     specs: [
-      "Localized content ingestion systems",
-      "Scalable user progression tracking architecture",
-      "Responsive Next.js & React dashboards",
+      "Rewrote slow Sequelize queries and refactored service layers",
+      "SEO and page speed optimization",
+      "Deployment fixes for a live booking platform",
     ],
-    tech: "React, Next.js, Node.js, MongoDB, AWS",
+    tech: "React, Node.js, Sequelize, SQL",
     image: "/images/romingo.png",
   },
   {

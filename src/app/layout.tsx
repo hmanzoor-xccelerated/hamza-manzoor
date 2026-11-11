@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Hamza Manzoor",
   },
   description:
-    "Official portfolio & architecture log of Hamza Manzoor — Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience in Next.js, NestJS, high-concurrency event queues, AWS cloud deployments, and enterprise AI orchestration.",
+    "Official portfolio & architecture log of Hamza Manzoor — Senior Full-Stack Engineer & Solutions Architect with 7+ years of experience in Next.js, NestJS, high-concurrency event queues, AWS cloud deployments, and enterprise AI orchestration.",
   keywords: [
     "Hamza Manzoor",
     "Hamza Manzoor Full-Stack Engineer",
@@ -67,7 +67,7 @@ const personProfilePageSchema = {
     alternateName: "Hamza Manzoor Solutions Architect",
     jobTitle: "Senior Full-Stack Engineer & Solutions Architect",
     description:
-      "Senior Full-Stack Engineer & Solutions Architect with 6+ years of experience in Next.js, NestJS microservices, PostgreSQL advisory locking, BullMQ event queues, AWS cloud infrastructure, and AI orchestration.",
+      "Senior Full-Stack Engineer & Solutions Architect with 7+ years of experience in Next.js, NestJS microservices, PostgreSQL advisory locking, BullMQ event queues, AWS cloud infrastructure, and AI orchestration.",
     url: "https://hamza-manzoor.vercel.app",
     image: "https://hamza-manzoor.vercel.app/images/hamza-portraitfull.jpg",
     email: "hamzamanzoor8234@gmail.com",
@@ -92,7 +92,7 @@ const personProfilePageSchema = {
       "PostgreSQL Row-Level Security (RLS)",
       "BullMQ Queue Systems & Redis",
       "AWS Cloud Infrastructure & Docker",
-      "Enterprise AI Orchestration & Media Localization",
+      "AI Campaign Orchestration & Media Generation",
     ],
   },
 };
