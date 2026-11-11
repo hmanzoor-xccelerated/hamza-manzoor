@@ -20,7 +20,7 @@ const COMMAND_OUTPUTS: Record<string, string[]> = {
   bio: [
     "Name: Hamza Manzoor",
     "Role: Senior Full-Stack Engineer & Solutions Architect",
-    "Bio: 6+ years of experience designing, building, and scaling",
+    "Bio: 7+ years of experience designing, building, and scaling",
     "     high-concurrency web apps, multi-tenant SaaS, and",
     "     enterprise AI orchestration pipelines (RAG, TTS, Voice).",
   ],
@@ -35,14 +35,16 @@ const COMMAND_OUTPUTS: Record<string, string[]> = {
   ],
   projects: [
     "Deployed systems:",
-    "  * Voxbee.ai      - Enterprise AI-driven audio & voice intelligence platform",
-    "  * Romingo        - Multilingual SaaS and localized learning platform",
+    "  * Voxbee.ai      - AI campaign orchestration platform with media & voice studios",
+    "  * Romingo        - Pet-friendly hotel & vacation rental booking platform",
     "  * SalonX/TheQube - Multi-tenant white-label SaaS booking engines",
     "  * Xeurix         - Recruitment SaaS with windowed rendering queries",
   ],
   contact: [
     "Connecting to secure mail servers...",
     "Email: hamzamanzoor8234@gmail.com",
+    "LinkedIn: linkedin.com/in/hamzamanzoor8234",
+    "GitHub: github.com/hamzamanzoor8234",
     "Status: Available for high-impact roles & core architecture design.",
   ],
 };

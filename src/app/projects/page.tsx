@@ -38,7 +38,7 @@ const allProjects = [
   {
     id: "voxbee",
     name: "Voxbee.ai",
-    category: "AI Voice & Translation SaaS",
+    category: "AI Campaign Orchestration SaaS",
     description:
       "Challenge: High-volume media upload compute overhead and audio-video sync latency. Solution: Designed secure direct-to-S3 NestJS uploads via presigned URLs and dynamic time-warping speech alignments. Outcome: Reduced content localization cycles by 85%.",
     specs: [
@@ -52,16 +52,16 @@ const allProjects = [
   {
     id: "romingo",
     name: "Romingo",
-    category: "Multilingual SaaS Platform",
+    category: "Hotel Booking Platform",
     description:
-      "Challenge: Ingesting localized content schemas and tracking user progress across multilingual environments. Solution: Designed localized content ingestion and user progression tracking database architectures. Outcome: Reduced page loads by 40%.",
+      "Challenge: Slow API responses, weak search visibility, and unreliable deployments on a live hotel booking platform. Solution: Rewrote slow Sequelize queries, refactored service layers, and optimized SEO and page speed. Outcome: Faster API responses and stable releases.",
     specs: [
-      "Localized content ingestion systems",
-      "Scalable user progression tracking architecture",
-      "Responsive Next.js & React dashboards",
+      "Rewrote slow Sequelize queries and refactored service layers",
+      "SEO and page speed optimization",
+      "Deployment fixes for a live booking platform",
     ],
-    tech: "React, Next.js, Node.js, MongoDB, AWS",
-    image: "/images/romingo.png",
+    tech: "React, Node.js, Sequelize, SQL",
+    image: "/images/romingo.jpg",
   },
   {
     id: "theqube",
@@ -82,42 +82,42 @@ const allProjects = [
     name: "Xeurix",
     category: "Enterprise Recruitment SaaS",
     description:
-      "Challenge: Semantic search latency over 100k+ candidate records and code governance. Solution: Engineered windowed frontend rendering and optimized PostgreSQL query indexes. Outcome: Reduced search latency by 70%.",
+      "Challenge: Semantic search latency over 100k+ candidate records and code governance. Solution: Led the frontend team, engineered windowed frontend rendering and optimized database queries. Outcome: Reduced search latency by 70%.",
     specs: [
       "Windowed data rendering on React",
-      "Optimized PostgreSQL queries & indexes",
+      "Optimized MariaDB queries via Knex",
       "Established code review & branch protection rules",
     ],
-    tech: "React.js, Node.js, PostgreSQL, TypeScript",
+    tech: "React, Next.js, Node.js (Express), TypeScript, Ant Design, Styled Components, Knex, MariaDB, AWS, D3.js, GSAP",
     image: "/images/xeurix.png",
   },
   {
     id: "lartigiano",
     name: "L'Artigiano",
-    category: "Gourmet Food Delivery",
+    category: "Pizza Delivery & Online Ordering",
     description:
-      "Challenge: Slow checkout performance (over 3s) & cart loss. Solution: Built optimized Next.js checkout cache. Outcome: Dropped load time to <800ms and reduced cart abandonment by 30%.",
+      "Challenge: A busy pizza delivery brand needed many new frontend features built exactly to design. Solution: Built pixel-perfect, responsive features in JavaScript, HTML and Bootstrap on a PHP backend, plus D3.js data visualizations. Outcome: Delivered the features to match the designs across devices.",
     specs: [
-      "Dynamic client checkout caching",
-      "Menu grids optimized for layout loads",
-      "Secured payment gateways",
+      "Pixel-perfect, responsive frontend features",
+      "JavaScript, HTML and Bootstrap on a PHP backend",
+      "D3.js data visualizations",
     ],
-    tech: "React, Next.js, Node.js, Express, Stripe",
-    image: "/images/lartigiano.png",
+    tech: "JavaScript, HTML, Bootstrap, PHP, D3.js",
+    image: "/images/lartigiano.jpg",
   },
   {
     id: "camperoni",
     name: "Camperoni",
-    category: "Logistics Dispatch Portal",
+    category: "Kids' Camp & Activity Finder",
     description:
-      "Challenge: Live tracking latency & unoptimized dispatch logs. Solution: Developed FastAPI + Redis transit cache and Mapbox integration. Outcome: Halved transit delivery tracking lag.",
+      "Challenge: Parents needed one place to find and compare local kids' camps and activities. Solution: Built frontend features in Next.js, TypeScript, Redux and Storybook, backend APIs in Node.js and Express, and real-time features with Socket.IO. Outcome: Shipped search and filtering features across frontend and backend.",
     specs: [
-      "Live vehicle geolocation mapping",
-      "Automated routing optimization",
-      "High-concurrency updates",
+      "Next.js, TypeScript, Redux and Storybook frontend",
+      "Node.js and Express backend APIs",
+      "Real-time features with Socket.IO",
     ],
-    tech: "React, FastAPI, Python, PostgreSQL, Redis",
-    image: "/images/camperoni.png",
+    tech: "Next.js, TypeScript, Redux, Storybook, Node.js, Express, Socket.IO",
+    image: "/images/camperoni.jpg",
   },
   {
     id: "whatshush",

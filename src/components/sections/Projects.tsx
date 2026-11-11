@@ -2,7 +2,7 @@ const projects = [
   {
     name: "Voxbee AI",
     description:
-      "Multimodal AI platform for automated dubbing, TTS orchestration, and avatar generation.",
+      "AI campaign orchestration platform with built-in studios for image, video, voice, and dubbing.",
     stack: "Next.js, NestJS, FastAPI, Whisper, RAG",
   },
   {
@@ -14,8 +14,8 @@ const projects = [
   {
     name: "Romingo",
     description:
-      "Hotel management suite with role-based workflows and enterprise operations tooling.",
-    stack: "React, NestJS, MongoDB, AWS",
+      "Pet-friendly hotel and vacation rental booking platform; optimized SEO, speed, and database queries.",
+    stack: "React, Node.js, Sequelize, SQL",
   },
 ];
 

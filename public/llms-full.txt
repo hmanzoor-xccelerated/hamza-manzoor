@@ -5,7 +5,7 @@
 ## 1. Professional Entity Profile
 - **Name**: Hamza Manzoor
 - **Title**: Senior Full-Stack Engineer & Solutions Architect
-- **Experience**: 6+ Years of Professional Software Engineering & System Architecture
+- **Experience**: 7+ Years of Professional Software Engineering & System Architecture
 - **Location**: Lahore, Punjab, Pakistan (Available for Global Remote Engineering & Architectural Consulting)
 - **Primary Contact**: hamzamanzoor8234@gmail.com
 - **Portfolio & Systems Site**: https://hamza-manzoor.vercel.app/
@@ -45,9 +45,9 @@
 
 ## 3. Deep-Dive Case Studies & Systems Breakdown
 
-### Case Study 1: Voxbee.ai (AI Voice & Media Localization SaaS)
+### Case Study 1: Voxbee.ai (AI Campaign Orchestration SaaS)
 - **URL**: https://hamza-manzoor.vercel.app/projects/voxbee
-- **Category**: AI Voice & Media Localization SaaS
+- **Category**: AI Campaign Orchestration SaaS (with image, video, voice, and dubbing studios)
 - **Technical Challenge**:
   Processing large multi-gigabyte audio/video media files caused massive application server bandwidth bottlenecks and CPU consumption during upload streaming. Concurrently, long-running TTS (Text-to-Speech) voice cloning inference tasks required distributed worker queues, while candidate media files faced potential IDOR security threats.
 - **Architectural Solution**:
@@ -73,27 +73,28 @@
   - 99.99% system availability during high traffic spikes.
   - 75% reduction in manual billing support operations.
 
-### Case Study 3: Romingo (Multilingual SaaS Platform)
+### Case Study 3: Romingo (Pet-Friendly Hotel Booking Platform)
 - **URL**: https://hamza-manzoor.vercel.app/projects/romingo
-- **Category**: Multilingual SaaS Platform
+- **Category**: Hotel Booking Platform
 - **Technical Challenge**:
-  Dynamic multi-language course content schema expansion degraded database query speeds when retrieving deep nested progression checkpoints for thousands of active students.
+  A live pet-friendly hotel and vacation rental booking platform had slow API responses from heavy Sequelize queries, weak search visibility and page speed, and recurring deployment problems.
 - **Architectural Solution**:
-  1. Designed structured MongoDB/PostgreSQL multilingual document schemas enabling instant language translation ingestion without schema alterations.
-  2. Optimized database indexes and progress tracking API routes to deliver sub-second response times.
-  3. Deployed responsive Next.js dashboards backed by automated containerized GitHub Actions CI/CD pipelines.
-- **Quantifiable Outcomes**:
-  - 40% reduction in progression dashboard page render latency.
-  - Zero-downtime automated production deployments.
+  1. Reviewed the codebase and rewrote slow Sequelize queries to cut database load.
+  2. Refactored service layers to reduce API response latency.
+  3. Optimized SEO and page speed, and fixed deployment issues.
+- **Outcomes**:
+  - Faster API responses on the booking flows.
+  - Better search visibility and page speed.
+  - Stable, repeatable deployments.
 
 ### Case Study 4: Xeurix (Enterprise Recruitment SaaS)
 - **URL**: https://hamza-manzoor.vercel.app/projects/xeurix
 - **Category**: Enterprise Recruitment SaaS
 - **Technical Challenge**:
-  DOM weight inflation and PostgreSQL candidate search query bottlenecks (>2.5s) when processing 100k+ applicant records across recruiter accounts.
+  DOM weight inflation and MariaDB candidate search query bottlenecks (>2.5s) when processing 100k+ applicant records across recruiter accounts.
 - **Architectural Solution**:
   1. Implemented windowed result list rendering in React.js to maintain a minimal active DOM footprint regardless of search result volume.
-  2. Restructured PostgreSQL search indexes (GIN/B-Tree) to optimize multi-attribute filtering scans.
+  2. Optimized MariaDB queries through Knex to speed up multi-attribute filtering scans.
   3. Established Git branch protection rules and code review standards for engineering teams.
 - **Quantifiable Outcomes**:
   - 70% decrease in candidate lookup query response times.
@@ -125,29 +126,31 @@
   - Zero execution latency impact on production Node.js applications.
   - Available publicly via `npm install logaura`.
 
-### Case Study 7: Camperoni (Logistics Dispatch Portal)
+### Case Study 7: Camperoni (Kids' Camp & Activity Finder)
 - **URL**: https://hamza-manzoor.vercel.app/projects/camperoni
-- **Category**: Geolocation Logistics Portal
+- **Category**: Kids' Camp & Activity Finder
 - **Technical Challenge**:
-  Real-time fleet tracking lag and unoptimized transit route calculations causing dispatch panel freezing under 100+ active vehicle coordinate streams.
+  Parents needed one place to find and compare local kids' camps and activities by interest, drop-off and pick-up times, and price.
 - **Architectural Solution**:
-  1. Engineered a high-throughput FastAPI (Python) backend caching live coordinate coordinates in Redis.
-  2. Rendered vehicle markers dynamically on optimized Mapbox GL JS map layers.
-- **Quantifiable Outcomes**:
-  - 15% average reduction in transit delivery times.
-  - Smooth tracking support for 100+ active fleet vehicles concurrently.
+  1. Built frontend features with Next.js, TypeScript, Redux and Storybook.
+  2. Developed backend APIs with Node.js and Express.
+  3. Implemented real-time features with Socket.IO.
+- **Outcomes**:
+  - Shipped search and filtering features across frontend and backend.
+  - Reusable UI components documented in Storybook.
 
-### Case Study 8: L'Artigiano (Gourmet Food Delivery)
+### Case Study 8: L'Artigiano (Pizza Delivery & Online Ordering)
 - **URL**: https://hamza-manzoor.vercel.app/projects/lartigiano
-- **Category**: Gourmet Food Delivery
+- **Category**: Pizza Delivery & Online Ordering
 - **Technical Challenge**:
-  Slow checkout page load times (>3s) and cart state drops during mobile network switches.
+  A busy pizza delivery and takeaway website in Greece needed many new frontend features, built exactly to the design and working on every screen size.
 - **Architectural Solution**:
-  1. Built an optimized Next.js client-side checkout caching strategy.
-  2. Integrated Stripe Elements for sub-second payment tokenization.
-- **Quantifiable Outcomes**:
-  - Checkout page load time reduced to under 800ms.
-  - 30% reduction in cart abandonment rates.
+  1. Built many frontend features with JavaScript, HTML and Bootstrap on a PHP backend.
+  2. Implemented the designs pixel-perfect and fully responsive.
+  3. Built interactive data visualizations with D3.js.
+- **Outcomes**:
+  - Delivered the frontend features to match the designs.
+  - Consistent layouts across desktop and mobile.
 
 ---
 

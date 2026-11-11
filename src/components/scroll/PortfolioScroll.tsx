@@ -19,9 +19,9 @@ const projectSlides = [
     id: "romingo",
     title: "Romingo",
     description:
-      "Challenge: Slow progress tracking and unoptimized localized content pipelines. Solution: Designed a modular content localization schema and optimized user progression tracking. Outcome: Reduced page loads by 40%.",
-    tech: "React, Next.js, Node.js, MongoDB, AWS",
-    image: "/images/romingo.png",
+      "Challenge: Slow API responses, weak search visibility, and unreliable deployments on a live hotel booking platform. Solution: Rewrote slow Sequelize queries, refactored service layers, and optimized SEO and page speed. Outcome: Faster API responses and stable releases.",
+    tech: "React, Node.js, Sequelize, SQL",
+    image: "/images/romingo.jpg",
   },
   {
     id: "theqube",
@@ -35,8 +35,8 @@ const projectSlides = [
     id: "xeurix",
     title: "Xeurix",
     description:
-      "Challenge: High CPU usage on semantic queries across 100k+ candidate records. Solution: Optimized PostgreSQL indexes, scaled background workers, and implemented windowed rendering. Outcome: Reduced query latency by 70%.",
-    tech: "React.js, Node.js, PostgreSQL, TypeScript",
+      "Challenge: High CPU usage on semantic queries across 100k+ candidate records. Solution: Led the frontend team, optimized database queries, and implemented windowed rendering. Outcome: Reduced query latency by 70%.",
+    tech: "React, Next.js, Node.js (Express), TypeScript, Ant Design, Styled Components, Knex, MariaDB, AWS, D3.js, GSAP",
     image: "/images/xeurix.png",
   },
   {
@@ -424,7 +424,7 @@ function SkillsSection() {
       {/* Tech Stack Metrics Strip */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 p-5 rounded-2xl border border-cyan-500/10 bg-slate-950/40 backdrop-blur">
         <div className="border-r border-slate-800/60 pr-4">
-          <p className="text-2xl font-mono font-bold text-cyan-300">6+ YRS</p>
+          <p className="text-2xl font-mono font-bold text-cyan-300">7+ YRS</p>
           <p className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">Production Exp</p>
         </div>
         <div className="border-r border-slate-800/60 md:border-r pr-4 pl-0 md:pl-4">

@@ -17,8 +17,8 @@
 
 ## Core Systems Architecture Case Studies
 
-### 1. Voxbee.ai — AI Voice & Media Localization SaaS
-- **Category**: AI Voice & Media Localization SaaS
+### 1. Voxbee.ai — AI Campaign Orchestration SaaS
+- **Category**: AI Campaign Orchestration SaaS (with image, video, voice, and dubbing studios)
 - **URL**: https://hamza-manzoor.vercel.app/projects/voxbee
 - **Challenge**: High application server bandwidth overhead during raw media file transfers, long-running TTS voice cloning inference queues, and IDOR vulnerability risks.
 - **Solution**: Designed direct-to-S3 NestJS upload modules using presigned URLs; orchestrated containerized AI GPU worker queues with BullMQ, Redis, and Celery; conducted security audits resolving IDOR threats.
@@ -31,18 +31,18 @@
 - **Solution**: Implemented PostgreSQL Row-Level Security (RLS) policies for tenant data isolation and PostgreSQL advisory locks for transactional schedule guards. Integrated Stripe subscription and billing engines.
 - **Outcome**: 0 concurrency booking collisions across all tenants; 99.99% uptime; 75% reduction in manual billing support tickets.
 
-### 3. Romingo — Multilingual Learning SaaS Platform
-- **Category**: Multilingual SaaS Platform
+### 3. Romingo — Pet-Friendly Hotel Booking Platform
+- **Category**: Hotel Booking Platform
 - **URL**: https://hamza-manzoor.vercel.app/projects/romingo
-- **Challenge**: Ingesting localized multi-language content schemas and tracking dynamic student progress checkpoints without latency bottlenecks.
-- **Solution**: Designed multi-language database content schemas, engineered sub-second progress tracking APIs, built responsive Next.js/TailwindCSS dashboards.
-- **Outcome**: 40% reduction in dashboard page load times; zero-downtime CI/CD container deployments.
+- **Challenge**: Slow API responses from heavy Sequelize queries, weak search visibility and page speed, and deployment problems on a live hotel and vacation rental booking platform.
+- **Solution**: Rewrote slow Sequelize queries, refactored service layers, optimized SEO and page speed, and fixed deployment issues.
+- **Outcome**: Faster API responses, better search visibility, and stable deployments.
 
 ### 4. Xeurix — Enterprise Recruitment SaaS
 - **Category**: Enterprise Recruitment SaaS
 - **URL**: https://hamza-manzoor.vercel.app/projects/xeurix
-- **Challenge**: Semantic search latency and CPU bottlenecks over 100k+ applicant records in PostgreSQL.
-- **Solution**: Engineered windowed result list rendering in React.js and optimized PostgreSQL B-tree/GIN index queries.
+- **Challenge**: Semantic search latency and CPU bottlenecks over 100k+ applicant records in MariaDB.
+- **Solution**: Led the frontend team, engineered windowed result list rendering in React, and optimized MariaDB queries through Knex.
 - **Outcome**: 70% decrease in candidate search query response time.
 
 ### 5. WhatsHush — Privacy Chrome Extension
@@ -59,19 +59,19 @@
 - **Solution**: Created a zero-dependency TypeScript logging utility using ANSI escape codes, custom namespace filters, and JSON log file rotation streams.
 - **Outcome**: Published on NPM registry (`npm i logaura`); zero execution latency impact on Node.js backends.
 
-### 7. Camperoni — Geolocation Logistics Portal
-- **Category**: Logistics & Dispatch Portal
+### 7. Camperoni — Kids' Camp & Activity Finder
+- **Category**: Kids' Camp & Activity Finder
 - **URL**: https://hamza-manzoor.vercel.app/projects/camperoni
-- **Challenge**: Geolocation tracking lag and unoptimized transit route planning.
-- **Solution**: Built a high-frequency FastAPI backend caching live transit coordinates in Redis and rendering map layers dynamically via Mapbox.
-- **Outcome**: 15% reduction in transit delivery times; supported 100+ concurrent fleet vehicles.
+- **Challenge**: Parents needed one place to find and compare local kids' camps and activities by interest, schedule and price.
+- **Solution**: Built frontend features with Next.js, TypeScript, Redux and Storybook; backend APIs with Node.js and Express; real-time features with Socket.IO.
+- **Outcome**: Shipped search and filtering features across frontend and backend.
 
-### 8. L'Artigiano — Gourmet Food Delivery E-Commerce
-- **Category**: Gourmet Food Delivery
+### 8. L'Artigiano — Pizza Delivery & Online Ordering
+- **Category**: Pizza Delivery & Online Ordering
 - **URL**: https://hamza-manzoor.vercel.app/projects/lartigiano
-- **Challenge**: Slow checkout page loads (>3s) and cart loss during network drops.
-- **Solution**: Built an optimized Next.js checkout platform utilizing client-side state caching and Stripe API integrations.
-- **Outcome**: Checkout load time dropped under 800ms; 30% reduction in cart abandonment.
+- **Challenge**: A busy pizza delivery and takeaway website in Greece needed many new frontend features built exactly to design.
+- **Solution**: Built pixel-perfect, responsive features with JavaScript, HTML and Bootstrap on a PHP backend, plus D3.js data visualizations.
+- **Outcome**: Delivered the features to match the designs across devices.
 
 ---
 
